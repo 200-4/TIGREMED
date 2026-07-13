@@ -282,9 +282,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   /* Red solid left → fades to transparent white right */
   background: linear-gradient(
     90deg,
-    rgba(236,36,38,0.95) 0%,
-    rgba(236,36,38,0.80) 30%,
-    rgba(236,36,38,0.45) 55%,
+    rgba(176, 71, 6, 0.95) 0%,
+    rgba(185, 95, 5, 0.8) 30%,
+    rgba(236, 116, 36, 0.45) 55%,
     rgba(255,255,255,0.15) 80%,
     rgba(255,255,255,0.05) 100%
   );
