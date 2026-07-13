@@ -94,12 +94,72 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
 }
 
+.header-top {
+  background: linear-gradient(90deg, rgba(26,26,46,0.96), rgba(26,26,46,0.86));
+  color: var(--white);
+  transition: transform var(--transition), opacity var(--transition);
+  will-change: transform, opacity;
+}
+.header-top-content {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 2.5rem;
+  font-size: 0.92rem;
+}
+.header-contact-info {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: rgba(255,255,255,0.95);
+}
+.contact-item i {
+  color: var(--orange);
+  min-width: 18px;
+  text-align: center;
+}
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.24);
+  color: rgba(255,255,255,0.95);
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+.social-icons a:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.45);
+  transform: translateY(-1px);
+}
+.header-top-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Single row: logo | nav (flex-grow) | actions */
 .header-inner {
   display: flex;
   align-items: center;
   padding: 0 2.5rem;
-  height: 90px;
+  min-height: 90px;
   gap: 0;
 }
 
@@ -282,7 +342,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   /* Red solid left → fades to transparent white right */
   background: linear-gradient(
     90deg,
-    rgba(176, 71, 6, 0.95) 0%,
+    rgba(176, 57, 6, 0.959) 0%,
     rgba(185, 95, 5, 0.8) 30%,
     rgba(236, 116, 36, 0.45) 55%,
     rgba(255,255,255,0.15) 80%,
@@ -742,7 +802,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     min-height: calc(100dvh - 64px);
     height: calc(100dvh - 64px);
   }
-  .hero-title { font-size: 2.2rem; }
+  .hero-title { font-size: 2rem; }
   .br-desk { display: none; }
   /* Hero content — on mobile text col fills full width */
   .hero-content {

@@ -16,6 +16,26 @@
 
   <!-- ═══════════════ HEADER ═══════════════ -->
   <header class="site-header" id="site-header">
+    <div class="header-top" id="header-top">
+      <div class="header-top-content">
+        <div class="header-contact-info">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+256 700 317380</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>info@tigeremedpharma.com</span>
+          </div>
+        </div>
+        <div class="social-icons">
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+
     <div class="header-inner">
 
       <!-- Logo -->

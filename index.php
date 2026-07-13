@@ -18,7 +18,7 @@
         <!-- Text column — 60% width -->
         <div class="hero-text-col">
           <h1 class="hero-title">
-            ENHANCING<br />PATIENTS'<br />LIVES
+            Enhancing<br />Patients'<br />Lives
           </h1>
           <p class="hero-tagline">
             To enhance patients' lives, inspire hope and help provide<br class="br-desk"/>
