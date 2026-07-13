@@ -15,15 +15,19 @@
       <div class="hero-overlay" aria-hidden="true"></div>
 
       <div class="hero-content">
-        <h1 class="hero-title">
-          ENHANCING<br />PATIENTS'<br />LIVES
-        </h1>
-        <p class="hero-tagline">
-          To enhance patients' lives, inspire hope and help provide<br class="br-desk"/>
-          world-class healthcare that is accessible to all.
-        </p>
-        <a href="#about" class="btn btn-outline">KNOW MORE</a>
+        <!-- Text column — 60% width -->
+        <div class="hero-text-col">
+          <h1 class="hero-title">
+            ENHANCING<br />PATIENTS'<br />LIVES
+          </h1>
+          <p class="hero-tagline">
+            To enhance patients' lives, inspire hope and help provide<br class="br-desk"/>
+            world-class healthcare that is accessible to all.
+          </p>
+          <a href="#about" class="btn btn-outline">KNOW MORE</a>
+        </div>
       </div>
+
     </section>
 
     <!-- ═══════════════ ABOUT / SECOND CONTAINER ═══════════════ -->

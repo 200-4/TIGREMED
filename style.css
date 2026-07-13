@@ -202,8 +202,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 36px;
-  height: 26px;
+  width: 46px;
+  height: 36px;
   flex-shrink: 0;
   background: var(--orange);
   border-radius: 6px;
@@ -253,7 +253,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ═══════════════ HERO ═══════════════ */
 .hero {
   position: relative;
-  min-height: 760px;
+  /* Full viewport height minus the sticky header */
+  min-height: calc(100dvh - var(--header-h));
+  height: calc(100dvh - var(--header-h));
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -293,6 +295,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 2;
   width: 100%;
   padding: 3.5rem 2.5rem;
+  /* allow the social sidebar to sit beside the content area */
+  display: flex;
+  align-items: center;
+}
+
+/* ── 60% text column inside hero ── */
+.hero-text-col {
+  width: 60%;
+  max-width: 60%;
+  flex-shrink: 0;
 }
 
 .hero-title {
@@ -313,6 +325,64 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 2rem;
 }
 .br-desk { display: block; }
+
+/* ═══════════════ FIXED SOCIAL SIDEBAR ═══════════════ */
+/* Stays fixed on the right edge as the user scrolls — every page */
+.social-float {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1100;           /* above header (1000) */
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.social-float-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  /* Light frosted background */
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--navy);
+  border-left: 4px solid var(--orange);
+  box-shadow: -3px 0 14px rgba(0, 0, 0, 0.10);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background var(--transition), color var(--transition), width var(--transition);
+  overflow: hidden;
+}
+
+/* Font Awesome icon sizing & animation */
+.social-float-btn i {
+  font-size: 1.35rem;      /* ~22px — clear and bold */
+  line-height: 1;
+  transition: transform var(--transition), color var(--transition);
+  pointer-events: none;
+}
+
+/* Hover: slide wider + orange fill + white icon */
+.social-float-btn:hover {
+  background: var(--orange);
+  color: var(--white);
+  width: 68px;
+}
+
+.social-float-btn:hover i {
+  transform: scale(1.18);
+}
+
+/* Subtle separator between icons */
+.social-float-btn + .social-float-btn {
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* Rounded outer corners — top-left and bottom-left */
+.social-float-btn:first-child { border-radius: 8px 0 0 0; }
+.social-float-btn:last-child  { border-radius: 0 0 0 8px; }
 
 /* ═══════════════ ABOUT / SECOND CONTAINER ═══════════════ */
 .about-section {
@@ -350,12 +420,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ═══════════════ VIDEO SECTION ═══════════════ */
 .video-section {
   background: var(--white);
-  padding: 4rem 1.5rem 5rem;
+  padding: 4rem 0 0;          /* no side padding — full bleed */
   border-top: 1px solid var(--border);
 }
 .video-inner {
-  max-width: 900px;
-  margin: 0 auto;
+  width: 100%;                /* stretch edge-to-edge */
+  max-width: 100%;
+  margin: 0;
 }
 .video-title {
   font-size: clamp(1.4rem, 3vw, 2rem);
@@ -365,9 +436,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: 0.04em;
   margin-bottom: 1.8rem;
   text-transform: uppercase;
+  padding: 0 1.5rem;          /* keep text from touching edges */
 }
 .video-frame-wrap {
-  border-radius: 10px;
+  border-radius: 0;           /* flush with page edges */
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   background: #111;
@@ -375,7 +447,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .video-player-shell {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 */
+  padding-top: 56.25%;        /* 16:9 */
 }
 .corp-video-iframe {
   position: absolute;
@@ -388,8 +460,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: var(--navy);
   color: var(--white);
   text-align: center;
-  padding: 0.7rem 1rem;
-  font-size: 0.85rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.04em;
 }
@@ -401,28 +473,30 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .products-banner {
   display: flex;
   align-items: stretch;
-  min-height: 280px;
+  width: 100%;                /* full width */
+  min-height: 300px;
   background: var(--red);
   overflow: hidden;
   position: relative;
 }
 .products-banner-content {
   flex: 1;
-  padding: 3rem 2.5rem 3rem 3rem;
+  padding: 3.5rem 3rem 3.5rem 4rem;
   z-index: 1;
 }
 .products-banner-title {
-  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
   font-weight: 800;
   color: var(--white);
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   line-height: 1.25;
 }
 .products-banner-text {
-  font-size: 0.92rem;
-  color: rgba(255,255,255,0.92);
-  line-height: 1.7;
-  max-width: 560px;
+  font-size: clamp(1rem, 1.4vw, 1.1rem);  /* larger, responsive */
+  color: rgba(255,255,255,0.95);
+  line-height: 1.8;
+  max-width: 680px;
+  padding-right: 1rem;
 }
 .products-banner-img {
   flex: 0 0 220px;
@@ -546,19 +620,51 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   line-height: 1.75;
   margin-bottom: 1.6rem;
 }
-.footer-social { display: flex; gap: 0.7rem; }
+.footer-social {
+  display: flex;
+  gap: 0.9rem;
+}
 .social-icon {
-  width: 42px;
-  height: 42px;
-  border: 2px solid var(--navy);
-  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background var(--transition), border-color var(--transition);
+  background: rgba(255,255,255,0.95);
+  border: 2px solid rgba(255,255,255,0.65);
+  color: var(--navy);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
-.social-icon:hover { background: var(--navy); }
-.social-icon:hover svg { stroke: var(--white); }
+.social-icon i {
+  font-size: 1.05rem;
+  transition: transform var(--transition), color var(--transition), text-shadow var(--transition);
+}
+.social-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 30px rgba(0,0,0,0.18);
+  border-color: rgba(255,255,255,0.95);
+}
+.social-icon:hover i {
+  transform: scale(1.08);
+  color: #fff;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+.social-icon.linkedin:hover { background: #0077b5; }
+.social-icon.twitter:hover { background: #1da1f2; }
+.social-icon.facebook:hover { background: #1877f2; }
+.social-icon.whatsapp:hover { background: #25d366; }
+.social-icon.facebook { color: #1877f2; }
+.social-icon.twitter { color: #1da1f2; }
+.social-icon.linkedin { color: #0077b5; }
+.social-icon.whatsapp { color: #25d366; }
+.social-icon.facebook:hover,
+.social-icon.twitter:hover,
+.social-icon.linkedin:hover,
+.social-icon.whatsapp:hover {
+  border-color: transparent;
+}
 
 /* Nav cols */
 .footer-nav-cols {
@@ -631,11 +737,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     margin-left: 0;
   }
 
-  /* Hero */
-  .hero { min-height: 700px; }
+  /* Hero — keep full viewport height on tablet/mobile */
+  .hero {
+    min-height: calc(100dvh - 64px);
+    height: calc(100dvh - 64px);
+  }
   .hero-title { font-size: 2.2rem; }
   .br-desk { display: none; }
-  /* Center hero content on mobile */
+  /* Hero content — on mobile text col fills full width */
   .hero-content {
     display: flex;
     flex-direction: column;
@@ -643,7 +752,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     text-align: center;
     padding: 3rem 1.4rem;
   }
+  .hero-text-col {
+    width: 100%;
+    max-width: 100%;
+  }
   .hero-tagline { max-width: 100%; }
+
+  /* Fixed social sidebar — slightly smaller on tablet */
+  .social-float-btn {
+    width: 50px;
+    height: 50px;
+  }
+  .social-float-btn i { font-size: 1.2rem; }
+  .social-float-btn:hover { width: 58px; }
 
   /* About — stack: image top, content below, both centered */
   .about-inner { flex-direction: column; align-items: center; gap: 2rem; }
@@ -664,13 +785,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @media (max-width: 480px) {
   .header-inner {
     padding: 0 1rem;
-    height: 58px;
+    height: 88px;
   }
-  .mobile-nav { top: 58px; }  /* match 480px header height */
-  .logo img { height: 40px; }
+  .mobile-nav { top: 68px; }  /* match 480px header height */
+  .logo img { height: 80px; }
 
-  .hero { min-height: 640px; }
-  .hero-title { font-size: 1.9rem; }
+  .hero {
+    min-height: calc(100dvh - 58px);
+    height: calc(100dvh - 58px);
+  }
+  .hero-title { font-size: 5rem; }
   .hero-overlay {
     background: linear-gradient(
       160deg,
@@ -682,8 +806,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
   .about-section { padding: 2.5rem 1.2rem; }
 
-  .video-section { padding: 2.5rem 1.2rem 3rem; }
-  .video-title { font-size: 1.2rem; }
+  .video-section { padding: 2rem 1rem 1rem; }
+  .video-title { font-size: 1.2rem; padding: 0 1.2rem; }
 
   .products-banner { flex-direction: column; }
   .products-banner-img {
@@ -691,19 +815,37 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     max-height: 140px; padding: 0.8rem 1rem;
     background: rgba(160,20,20,0.3);
   }
-  .products-banner-content { padding: 1.8rem 1.2rem; }
+  .products-banner-content { padding: 2rem 1.5rem; }
+  .products-banner-text { font-size: 0.97rem; padding-right: 0; }
   .products-range { padding: 2rem 1.2rem 2.5rem; }
   .product-grid { grid-template-columns: 1fr 1fr; gap: 0.9rem; }
 
   .footer-nav-cols { gap: 1.4rem; }
   .footer-bottom { padding: 1rem 1.5rem; }
+
+  /* Fixed social sidebar — compact on small mobile */
+  .social-float-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .social-float-btn i { font-size: 1.05rem; }
+  /* Disable the slide-wider effect on touch */
+  .social-float-btn:hover { width: 44px; }
 }
 
 /* ── Very small — ≤360px ── */
 @media (max-width: 360px) {
   .product-grid { grid-template-columns: 1fr; }
-  .hero-title { font-size: 1.65rem; }
+  .hero-title { font-size: 2rem; }
   .products-banner-title { font-size: 1.1rem; }
+
+  /* Fixed social sidebar — minimal on tiny screens */
+  .social-float-btn {
+    width: 38px;
+    height: 38px;
+  }
+  .social-float-btn i { font-size: 0.92rem; }
+  .social-float-btn:hover { width: 38px; }
 }
 
 /* ── Scroll-in animation ── */

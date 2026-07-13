@@ -17,22 +17,17 @@
         </p>
 
         <div class="footer-social">
-          <a href="#" class="social-icon" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1a3a6b" stroke-width="2">
-              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-            </svg>
+          <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
           </a>
-          <a href="#" class="social-icon" aria-label="X / Twitter">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1a3a6b" stroke-width="2">
-              <path d="M4 4l16 16M20 4L4 20"/>
-            </svg>
+          <a href="#" class="social-icon twitter" aria-label="X / Twitter">
+            <i class="fa-brands fa-x"></i>
           </a>
-          <a href="#" class="social-icon" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1a3a6b" stroke-width="2">
-              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
-              <rect x="2" y="9" width="4" height="12"/>
-              <circle cx="4" cy="4" r="2"/>
-            </svg>
+          <a href="#" class="social-icon facebook" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-icon whatsapp" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
           </a>
         </div>
       </div>
@@ -73,6 +68,22 @@
       <p>&copy; <span id="footer-year"></span> Tigremed Pharma Co Ltd. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- ═══════════════ FIXED SOCIAL SIDEBAR ═══════════════ -->
+  <aside class="social-float" aria-label="Social media links">
+    <a href="#" class="social-float-btn" aria-label="Facebook">
+      <i class="fa-brands fa-facebook-f"></i>
+    </a>
+    <a href="#" class="social-float-btn" aria-label="X / Twitter">
+      <i class="fa-brands fa-x"></i>
+    </a>
+    <a href="#" class="social-float-btn" aria-label="LinkedIn">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="#" class="social-float-btn" aria-label="Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+  </aside>
 
   <script src="main.js"></script>
 </body>
