@@ -108,7 +108,7 @@
         </div>
         <div class="products-banner-img" aria-hidden="true">
           <!-- Medicine bottle placeholder -->
-          <img src="assets/product_tigre.png" alt="" class="products-banner-graphic" loading="lazy">
+          <img src="assets/product_tigre.png" alt=""  loading="lazy">
         </div>
       </div>
 
@@ -118,65 +118,17 @@
           <h3 class="range-title"><span class="range-accent">OUR PRODUCT RANGE</span></h3>
           <p class="range-subtitle">Explore our pharmaceutical product portfolio.</p>
         </div>
-
         <div class="product-carousel">
-          <div class="product-carousel-controls" aria-label="Product carousel controls">
-            <button type="button" class="carousel-btn" data-scroll-dir="prev" aria-label="Scroll products left">
-              <i class="fas fa-chevron-left"></i>
-            </button>
-            <button type="button" class="carousel-btn" data-scroll-dir="next" aria-label="Scroll products right">
-              <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
+        <div class="product-carousel-controls" aria-label="Product carousel controls">
+        <button type="button" class="carousel-btn" data-scroll-dir="prev" aria-label="Scroll products left">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button type="button" class="carousel-btn" data-scroll-dir="next" aria-label="Scroll products right">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        </div>
 
-          <div class="product-grid" id="product-grid">
-
-            <article class="product-card">
-              <div class="product-card-img">
-                <img src="assets/Progermila.png" alt="Progermila" loading="lazy" width="200" height="140"
-                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/> 
-              </div>
-              <div class="product-card-body">
-                <h4 class="product-name">PROGERMILA</h4>
-                <a href="product-details.php?product=progermila" class="product-link">View Product &#8594;</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-card-img">
-                <img src="assets/venocid.jpeg" alt="Venocid" loading="lazy" width="200" height="140"
-                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-                
-              </div>
-              <div class="product-card-body">
-                <h4 class="product-name">VENOCID</h4>
-                <a href="product-details.php?product=venocid" class="product-link">View Product &#8594;</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-card-img">
-                <img src="assets/inflagic_oral solution.png" alt="Inflagic Oral Solution" loading="lazy" width="200" height="140" />
-              </div>
-              <div class="product-card-body">
-                <h4 class="product-name">INFLAGIC ORAL SOLUTION</h4>
-                <a href="product-details.php?product=inflagic" class="product-link">View Product &#8594;</a>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <div class="product-card-img">
-                <img src="assets/Hantacid.png" alt="Hantacid" loading="lazy" width="200" height="140"
-                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-                
-              </div>
-              <div class="product-card-body">
-                <h4 class="product-name">HANTACID</h4>
-                <a href="product-details.php?product=hantacid" class="product-link">View Product &#8594;</a>
-              </div>
-            </article>
-
-          </div>
+        <?php include "products_range.php"; ?>
         </div>
 
         <div class="range-cta">

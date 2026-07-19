@@ -24,4 +24,10 @@
   </div>
 </section>
 
+<!-- Product category -->
+ <section class="product-list">
+    <?php include "products_range.php"; ?>
+ </section>
+
+
 <?php include 'footer.php'; ?>

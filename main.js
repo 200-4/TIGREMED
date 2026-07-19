@@ -47,21 +47,11 @@
   items.forEach(function (el) { io.observe(el); });
 })();
 
-/* ── 4. Header topbar hide on scroll down ── */
+/* ── 4. Header topbar remains visible ── */
 (function () {
   var topbar = document.getElementById('header-top');
   if (!topbar) return;
-
-  var lastScrollY = window.scrollY;
-  window.addEventListener('scroll', function () {
-    var currentScrollY = window.scrollY;
-    if (currentScrollY > lastScrollY && currentScrollY > 20) {
-      topbar.classList.add('header-top-hidden');
-    } else if (currentScrollY < lastScrollY) {
-      topbar.classList.remove('header-top-hidden');
-    }
-    lastScrollY = currentScrollY;
-  }, { passive: true });
+  topbar.classList.remove('header-top-hidden');
 })();
 
 /* ── 5. Product carousel controls ── */

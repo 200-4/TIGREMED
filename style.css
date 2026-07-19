@@ -21,8 +21,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ── Variables ── */
 :root {
-  --orange: #ec2426;        /* logo primary red  */
-  --orange-dark: #b51a1c;   /* logo red — darker hover */
+  --orange:#f5871f;
+  --orange-light:#f7b733;
+  --purple:#5b2c7a;
+  --main-red: #ec2426;        /* logo primary red  */
+  --red-dark: #b51a1c;   /* logo red — darker hover */
   --navy: #1a1a2e;          /* deep neutral — complements red */
   --red: #e11d21;           /* logo accent red */
   --red-light: #ec2426;     /* logo bright red */
@@ -60,14 +63,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--white);
   background: transparent;
 }
-.btn-outline:hover { background: var(--white); color: var(--orange); }
+.btn-outline:hover { background: var(--white); color: var(--main-red); }
 
 .btn-primary {
-  background: var(--orange);
+  background: var(--main-red);
   color: var(--white);
-  border: 2px solid var(--orange);
+  border: 2px solid var(--main-red);
 }
-.btn-primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); }
+.btn-primary:hover { background: var(--red-dark); border-color: var(--red-dark); }
 
 .btn-factsheet {
   display: inline-flex;
@@ -95,10 +98,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .header-top {
+  position: relative;
+  z-index: 1;
   background: linear-gradient(90deg, rgba(224, 67, 44, 1), rgba(245, 135, 31, 1));
   color: var(--white);
-  transition: transform var(--transition), opacity var(--transition);
-  will-change: transform, opacity;
+  transform: none;
+  opacity: 1;
+  pointer-events: auto;
+  transition: none;
+  will-change: auto;
 }
 .header-top-content {
   max-width: 1320px;
@@ -123,7 +131,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: rgba(255,255,255,0.95);
 }
 .contact-item i {
-  color: var(--orange);
+  color: var(--main-red);
   min-width: 18px;
   text-align: center;
 }
@@ -149,9 +157,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transform: translateY(-1px);
 }
 .header-top-hidden {
-  transform: translateY(-100%);
-  opacity: 0;
-  pointer-events: none;
+  transform: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 /* Single row: logo | nav (flex-grow) | actions */
@@ -204,8 +212,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: 0;
   text-transform: none;
 }
-.nav-link:hover { color: var(--orange); background: none; }
-.nav-link.active { color: var(--orange); font-weight: 600; }
+.nav-link:hover { color: var(--main-red); background: none; }
+.nav-link.active { color: var(--main-red); font-weight: 600; }
 .arrow {
   font-size: 0.5rem;
   margin-top: 1px;
@@ -237,8 +245,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 400;
   transition: color var(--transition);
 }
-.dropdown li:first-child a { color: var(--orange); font-weight: 600; }
-.dropdown li a:hover { color: var(--orange); background: none; }
+.dropdown li:first-child a { color: var(--main-red); font-weight: 600; }
+.dropdown li a:hover { color: var(--main-red); background: none; }
 
 /* Header right side: CTA + hamburger */
 .header-actions {
@@ -265,7 +273,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 46px;
   height: 36px;
   flex-shrink: 0;
-  background: var(--orange);
+  background: var(--main-red);
   border-radius: 6px;
   padding: 6px 7px;
   margin-left: auto;      /* push to far right */
@@ -308,7 +316,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: background var(--transition);
 }
 .mobile-link:hover, .mobile-link.active { background: rgba(236,36,38,0.2); }
-.contact-mobile { color: var(--orange) !important; }
+.contact-mobile { color: var(--main-red) !important; }
 
 /* ═══════════════ HERO ═══════════════ */
 .hero {
@@ -408,7 +416,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   /* Light frosted background */
   background: rgba(255, 255, 255, 0.88);
   color: var(--navy);
-  border-left: 4px solid var(--orange);
+  border-left: 4px solid var(--main-red);
   box-shadow: -3px 0 14px rgba(0, 0, 0, 0.10);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -424,9 +432,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   pointer-events: none;
 }
 
-/* Hover: slide wider + orange fill + white icon */
+/* Hover: slide wider + main-red fill + white icon */
 .social-float-btn:hover {
-  background: var(--orange);
+  background: var(--main-red);
   color: var(--white);
   width: 68px;
 }
@@ -572,16 +580,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: relative;
 }
 
-.products-banner-graphic {
+.products-banner-img img {
   display: block;
-  width: 100%;
-  max-width: min(360px, 100%);
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
   height: auto;
-  max-height: 280px;
   object-fit: contain;
   object-position: center;
-  background: inherit;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+  background-color: inherit;
 }
 
 /* Responsive behavior */
@@ -607,9 +614,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     padding: 1rem 1.5rem 1.5rem;
   }
 
-  .products-banner-graphic {
-    max-height: 220px;
-  }
+
 }
 
 @media (max-width: 480px) {
@@ -621,11 +626,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     min-height: 180px;
     padding: 1rem 1rem 1.25rem;
   }
-
-  .products-banner-graphic {
-    max-height: 180px;
-  }
 }
+  
 
 /* Range */
 .products-range {
@@ -683,7 +685,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .carousel-btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
-  color: var(--orange);
+  color: var(--main-red);
 }
 .carousel-btn i { font-size: 0.95rem; }
 
@@ -744,13 +746,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .product-link {
   font-size: 0.83rem;
   font-weight: 600;
-  color: var(--orange);
+  color: var(--main-red);
   display: inline-flex;
   align-items: center;
   gap: 0.2rem;
   transition: gap var(--transition), color var(--transition);
 }
-.product-link:hover { color: var(--orange-dark); gap: 0.45rem; }
+.product-link:hover { color: var(--red-dark); gap: 0.45rem; }
 .range-cta { text-align: center; }
 
 /* ═══════════════ FOOTER ═══════════════ */
@@ -959,6 +961,63 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .product-content-container p:last-child { margin-bottom: 0; }
 
+/* Product list section on products page */
+.product-list {
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  padding: 0 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-list .product-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 240px));
+  justify-content: center;
+  gap: 1.5rem;
+  overflow: visible;
+  padding: 0.25rem 0 0.75rem;
+  scrollbar-width: auto;
+  scroll-snap-type: none;
+}
+
+.product-list .product-card {
+  flex: 0 1 240px;
+  max-width: 240px;
+  min-width: 220px;
+  justify-self: center;
+}
+
+@media (max-width: 768px) {
+  .product-list {
+    padding: 0 24px 0;
+  }
+
+  .product-list .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list {
+    padding: 0 16px 0;
+    margin-bottom: 2.5rem;
+  }
+
+  .product-list .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-list .product-card {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+  }
+}
+
 /* ═══════════════ PRODUCT DETAIL PAGE ═══════════════ */
 .product-banner {
   position: relative;
@@ -1085,10 +1144,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .accordion-trigger:focus-visible { outline: 3px solid rgba(255,255,255,0.55); outline-offset: 2px; }
 .accordion-trigger .chevron { transition: transform 0.25s ease; font-size: 0.8rem; margin-left: 0.6rem; flex-shrink: 0; }
 .accordion-item.is-open .chevron { transform: rotate(180deg); }
-.accordion-trigger[data-key="composition"]{ background: linear-gradient(90deg, var(--navy), var(--orange)); }
-.accordion-trigger[data-key="dosage"]{ background: linear-gradient(90deg, var(--red), var(--orange)); }
-.accordion-trigger[data-key="indication"]{ background: linear-gradient(90deg, #0f3d54, var(--orange)); }
-.accordion-trigger[data-key="pharmacovigilance"]{ background: linear-gradient(90deg, var(--navy), var(--orange)); }
+.accordion-trigger[data-key="composition"]{ background: linear-gradient(90deg, var(--orange), var(--main-red)); }
+.accordion-trigger[data-key="dosage"]{ background: linear-gradient(90deg, var(--main-red), var(--orange)); }
+.accordion-trigger[data-key="indication"]{ background: linear-gradient(90deg, var(--orange), var(--main-red)); }
+.accordion-trigger[data-key="pharmacovigilance"]{ background: linear-gradient(90deg, var(--main-red), var(--orange)); }
 .accordion-panel {
   max-height: 0;
   overflow: hidden;
@@ -1102,7 +1161,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .accordion-panel h4 { margin: 0 0 0.5rem; font-size: 0.92rem; font-weight: 700; color: var(--text); }
 .accordion-panel p { margin: 0 0 0.4rem; font-size: 0.92rem; line-height: 1.6; color: var(--muted); }
-.accordion-panel a { color: var(--orange); font-weight: 600; text-decoration: none; }
+.accordion-panel a { color: var(--main-red); font-weight: 600; text-decoration: none; }
 .accordion-panel a:hover { text-decoration: underline; }
 .product-actions { margin-top: 1.4rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
 .btn {
@@ -1116,7 +1175,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: transform var(--transition), filter var(--transition), background var(--transition), color var(--transition);
 }
 .btn:active { transform: scale(0.97); }
-.btn-primary { background: var(--orange); color: var(--white); }
+.btn-primary { background: var(--main-red); color: var(--white); }
 .btn-primary:hover { filter: brightness(1.08); }
 .btn-outline { background: transparent; color: var(--text); border-color: var(--text); }
 .btn-outline:hover { background: var(--text); color: var(--white); }
@@ -1243,7 +1302,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .products-banner-img {
     flex: none; width: 100%; justify-content: flex-end;
     max-height: 140px; padding: 0.8rem 1rem;
-    background: rgba(160,20,20,0.3);
+    background-color: inherit;
   }
   .products-banner-content { padding: 2rem 1.5rem; }
   .products-banner-text { font-size: 0.97rem; padding-right: 0; }
@@ -1311,7 +1370,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .contact-title {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--orange);
+  color: var(--main-red);
   margin-bottom: 1rem;
   line-height: 1.2;
 }
@@ -1331,7 +1390,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.5rem;
-  background: var(--orange);
+  background: var(--main-red);
   color: var(--white);
   border-radius: 50px;
   text-decoration: none;
@@ -1404,7 +1463,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--orange);
+  border-color: var(--main-red);
   box-shadow: 0 0 0 3px rgba(236,36,38,0.1);
 }
 .form-group textarea {

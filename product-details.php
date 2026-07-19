@@ -13,7 +13,7 @@
         array('key' => 'composition', 'label' => 'Composition', 'heading' => 'Composition', 'body' => 'Each sachet contains a multi-strain probiotic blend with prebiotic fibre, formulated to support healthy gut flora balance.'),
         array('key' => 'dosage', 'label' => 'Dosage Form', 'heading' => 'Dosage Form', 'body' => 'Oral sachets / single-dose vials, dissolved or taken directly as directed by a healthcare provider.'),
         array('key' => 'indication', 'label' => 'Indication', 'heading' => 'Indication', 'body' => 'Restoration and maintenance of healthy gut microbiota, including support during and after antibiotic use.'),
-        array('key' => 'pharmacovigilance', 'label' => 'Pharmacovigilance', 'heading' => 'Pharmacovigilance', 'body' => 'To report any Adverse Drug Reactions (ADR), please contact <a href="mailto:info@lonza.co.ug">info@lonza.co.ug</a>.', 'open' => true)
+        array('key' => 'pharmacovigilance', 'label' => 'Pharmacovigilance', 'heading' => 'Pharmacovigilance', 'body' => 'To report any Adverse Drug Reactions (ADR), please contact <a href="mailto:info@tigremedpharma.co.ug">info@tigremedpharma.co.ug</a>.', 'open' => true)
       )
     ),
     'venocid' => array(
@@ -26,7 +26,7 @@
         array('key' => 'composition', 'label' => 'Composition', 'heading' => 'Composition', 'body' => 'A targeted formulation designed to support patient care with clinically aligned dosing and administration guidance.'),
         array('key' => 'dosage', 'label' => 'Dosage Form', 'heading' => 'Dosage Form', 'body' => 'Available in a patient-friendly oral format with clear dosing instructions for healthcare professionals.'),
         array('key' => 'indication', 'label' => 'Indication', 'heading' => 'Indication', 'body' => 'Recommended for use in therapeutic settings that require reliable and accessible disease management support.'),
-        array('key' => 'pharmacovigilance', 'label' => 'Pharmacovigilance', 'heading' => 'Pharmacovigilance', 'body' => 'Report any adverse event through our pharmacovigilance contact line at <a href="mailto:info@lonza.co.ug">info@lonza.co.ug</a>.', 'open' => true)
+        array('key' => 'pharmacovigilance', 'label' => 'Pharmacovigilance', 'heading' => 'Pharmacovigilance', 'body' => 'Report any adverse event through our pharmacovigilance contact line at <a href="mailto:info@tigremedpharma.co.ug">info@tigremedpharma.co.ug</a>.', 'open' => true)
       )
     ),
     'inflagic' => array(
@@ -39,7 +39,7 @@
         array('key' => 'composition', 'label' => 'Composition', 'heading' => 'Composition', 'body' => 'A liquid-based formulation developed for dependable delivery in pediatric and outpatient care settings.'),
         array('key' => 'dosage', 'label' => 'Dosage Form', 'heading' => 'Dosage Form', 'body' => 'Liquid oral solution designed for accurate dosing and ease of administration.'),
         array('key' => 'indication', 'label' => 'Indication', 'heading' => 'Indication', 'body' => 'Indicated for situations where a convenient oral solution supports safe, patient-centred treatment.'),
-        array('key' => 'pharmacovigilance', 'label' => 'Pharmacovigilance', 'heading' => 'Pharmacovigilance', 'body' => 'Report any suspected side effects to <a href="mailto:info@lonza.co.ug">info@lonza.co.ug</a>.', 'open' => true)
+        array('key' => 'pharmacovigilance', 'label' => 'Pharmacovigilance', 'heading' => 'Pharmacovigilance', 'body' => 'Report any suspected side effects to <a href="mailto:info@tigremedpharma.co.ug">info@tigremedpharma.co.ug</a>.', 'open' => true)
       )
     ),
     'hantacid' => array(
@@ -52,7 +52,7 @@
         array('key' => 'composition', 'label' => 'Composition', 'heading' => 'Composition', 'body' => 'A digestive support product formulated to help address common symptoms linked to gastric discomfort and acidity.'),
         array('key' => 'dosage', 'label' => 'Dosage Form', 'heading' => 'Dosage Form', 'body' => 'Available in easy-to-use oral dosage format with practical administration guidance.'),
         array('key' => 'indication', 'label' => 'Indication', 'heading' => 'Indication', 'body' => 'Suitable for patients looking for digestive support under professional guidance and appropriate care pathways.'),
-        array('key' => 'pharmacovigilance', 'label' => 'Pharmacovigilance', 'heading' => 'Pharmacovigilance', 'body' => 'Any medication safety concerns can be reported to <a href="mailto:info@lonza.co.ug">info@lonza.co.ug</a>.', 'open' => true)
+        array('key' => 'pharmacovigilance', 'label' => 'Pharmacovigilance', 'heading' => 'Pharmacovigilance', 'body' => 'Any medication safety concerns can be reported to <a href="mailto:info@tigremedpharma.co.ug">info@tigremedpharma.co.ug</a>.', 'open' => true)
       )
     )
   );
