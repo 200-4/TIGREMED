@@ -63,3 +63,99 @@
     lastScrollY = currentScrollY;
   }, { passive: true });
 })();
+
+/* ── 5. Product carousel controls ── */
+(function () {
+  var carousel = document.getElementById('product-grid');
+  if (!carousel) return;
+
+  var buttons = document.querySelectorAll('.carousel-btn');
+  if (!buttons.length) return;
+
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      var direction = this.getAttribute('data-scroll-dir') === 'prev' ? -1 : 1;
+      var card = carousel.querySelector('.product-card');
+      var scrollAmount = card ? card.getBoundingClientRect().width + 24 : 260;
+      carousel.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+    });
+  });
+})();
+
+/* ── 6. Product detail accordion ── */
+(function () {
+  var triggers = document.querySelectorAll('.accordion-trigger');
+  if (!triggers.length) return;
+
+  function closeAll() {
+    document.querySelectorAll('.accordion-item').forEach(function (item) {
+      item.classList.remove('is-open');
+      var trigger = item.querySelector('.accordion-trigger');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  triggers.forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      var item = trigger.closest('.accordion-item');
+      if (!item) return;
+      var isOpen = item.classList.contains('is-open');
+      closeAll();
+      if (!isOpen) {
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+
+/* ── 7. Products page hero typing animation ── */
+(function () {
+  var heroTextEl = document.getElementById('heroText');
+  if (!heroTextEl) return;
+
+  var heroMessages = [
+    'Trusted globally',
+    'Innovation-led research',
+    'Advancing patient care'
+  ];
+
+  var msgIndex = 0;
+  var charIndex = 0;
+  var typing = true;
+  var typeSpeed = 55;
+  var eraseSpeed = 30;
+  var holdTime = 1600;
+
+  function tick() {
+    var current = heroMessages[msgIndex];
+
+    if (typing) {
+      charIndex++;
+      heroTextEl.innerHTML = current.slice(0, charIndex) + '<span class="cursor-blink"></span>';
+      if (charIndex >= current.length) {
+        typing = false;
+        setTimeout(tick, holdTime);
+        return;
+      }
+      setTimeout(tick, typeSpeed);
+    } else {
+      charIndex--;
+      heroTextEl.innerHTML = current.slice(0, charIndex) + '<span class="cursor-blink"></span>';
+      if (charIndex <= 0) {
+        typing = true;
+        msgIndex = (msgIndex + 1) % heroMessages.length;
+        setTimeout(tick, 300);
+        return;
+      }
+      setTimeout(tick, eraseSpeed);
+    }
+  }
+
+  var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    heroTextEl.innerHTML = heroMessages[0] + '<span class="cursor-blink"></span>';
+  } else {
+    tick();
+  }
+})();
