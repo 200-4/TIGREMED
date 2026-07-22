@@ -14,11 +14,11 @@
       <!-- Orange → white gradient overlay -->
       <div class="hero-overlay" aria-hidden="true"></div>
 
-      <div class="hero-content">
+      <div class="hero-content reveal delay-1">
         <!-- Text column — 60% width -->
         <div class="hero-text-col">
           <h1 class="hero-title">
-            Enhancing<br />Patients'<br />Lives
+            Enhancing Patients' Lives
           </h1>
           <p class="hero-tagline">
             To enhance patients' lives, inspire hope and help provide<br class="br-desk"/>
@@ -34,7 +34,7 @@
     <section class="about-section" id="about" aria-label="About Tigremed">
       <div class="about-inner">
 
-        <div class="about-image-wrap">
+        <div class="about-image-wrap reveal delay-2">
           <img
             src="assets/distribute.png"
             alt="Tigremed pharmaceutical distribution"
@@ -43,7 +43,7 @@
           />
         </div>
 
-        <div class="about-content">
+        <div class="about-content reveal delay-3">
           <p class="about-text">
             Tigremed Pharma Co Ltd is a Uganda-focused pharmaceutical
             market access, distribution and healthcare supply chain company
@@ -118,7 +118,7 @@
           <h3 class="range-title"><span class="range-accent">OUR PRODUCT RANGE</span></h3>
           <p class="range-subtitle">Explore our pharmaceutical product portfolio.</p>
         </div>
-        <div class="product-carousel">
+        <div class="product-carousel reveal delay-4">
         <div class="product-carousel-controls" aria-label="Product carousel controls">
         <button type="button" class="carousel-btn" data-scroll-dir="prev" aria-label="Scroll products left">
             <i class="fas fa-chevron-left"></i>

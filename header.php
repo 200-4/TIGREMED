@@ -28,19 +28,17 @@
             <span>info@tigeremedpharma.com</span>
           </div>
         </div>
-        <div class="social-icons">
-          <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <div class="header-address">
+          Plot 93, Chrisams building, Kafeero Road, Kampala
         </div>
       </div>
     </div>
 
     <div class="header-inner">
 
-      <!-- Logo -->
+      <!-- logo_tigre_final -->
       <a href="index.php" class="logo" aria-label="Tigremed Pharma Home">
-        <img src="assets/logo.svg" alt="Tigremed Pharma" />
+        <img src="assets/logo_tigre_final.svg" alt="Tigremed Pharma" />
       </a>
 
       <!-- Desktop nav — centred between logo and CTA -->
@@ -103,9 +101,29 @@
   <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
     <ul class="mobile-nav-list">
       <li><a href="index.php" class="mobile-link active">Home</a></li>
-      <li><a href="#" class="mobile-link">About Us</a></li>
-      <li><a href="products.php" class="mobile-link">Products</a></li>
-      <li><a href="services.php" class="mobile-link">Services</a></li>
+      <li>
+        <a href="#" class="mobile-link">About Us</a>
+        <ul class="mobile-submenu">
+          <li><a href="#" class="mobile-sublink">Our Journey</a></li>
+          <li><a href="#" class="mobile-sublink">Board of Directors</a></li>
+          <li><a href="#" class="mobile-sublink">Leadership</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="products.php" class="mobile-link">Products</a>
+        <ul class="mobile-submenu">
+          <li><a href="products.php" class="mobile-sublink">Top Products</a></li>
+          <li><a href="products.php" class="mobile-sublink">Product Portfolio</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="services.php" class="mobile-link">Services</a>
+        <ul class="mobile-submenu">
+          <li><a href="services.php" class="mobile-sublink">Distribution</a></li>
+          <li><a href="services.php" class="mobile-sublink">Supply Chain</a></li>
+          <li><a href="services.php" class="mobile-sublink">Market Access</a></li>
+        </ul>
+      </li>
       <li><a href="#" class="mobile-link">Partners</a></li>
       <li><a href="contact.php" class="mobile-link contact-mobile">Connect with Us</a></li>
     </ul>
