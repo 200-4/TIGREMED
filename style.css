@@ -97,16 +97,23 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
 }
 
+/* Top info bar — collapses via max-height (not transform) on scroll so the
+   space is actually reclaimed and header-inner slides up to fill it. */
 .header-top {
   position: relative;
   z-index: 1;
   background: linear-gradient(90deg, rgba(224, 67, 44, 1), rgba(245, 135, 31, 1));
   color: var(--white);
-  transform: none;
+  max-height: 200px;
+  overflow: hidden;
   opacity: 1;
   pointer-events: auto;
-  transition: none;
-  will-change: auto;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+.header-top.scrolled-hidden {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 .header-top-content {
   max-width: 1320px;
@@ -168,11 +175,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-color: rgba(255,255,255,0.45);
   transform: translateY(-1px);
 }
-.header-top-hidden {
-  transform: none !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
 
 /* Single row: logo | nav (flex-grow) | actions */
 .header-inner {
@@ -181,6 +183,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 0 2.5rem;
   min-height: 90px;
   gap: 0;
+  position: relative; /* positioning context isn't required here (mobile-nav
+                          anchors to .site-header), kept for safety */
 }
 
 /* Logo */
@@ -290,6 +294,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: 6px;
   padding: 6px 7px;
   margin-left: auto;      /* push to far right */
+  position: relative;
+  z-index: 1002;           /* stay above mobile-nav so it's always clickable/visible */
 }
 .hamburger span {
   display: block;
@@ -304,12 +310,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* Mobile nav
-   NOTE: uses max-height (not translateY) for open/close so the closed
-   state is genuinely 0px — translateY(-100%) only shifts by the box's
-   own height, so a positive `top` value always left a sliver on-screen. */
+   IMPORTANT: this element now lives INSIDE <header class="site-header">
+   (as the last child, right after .header-inner), positioned absolute and
+   anchored with top:100% so it always sits exactly below the header's real
+   rendered height — whether header-top is showing, hidden, or stacked into
+   two rows on narrow screens. This is what fixes the hamburger/close icon
+   being covered: previously it was a fixed-position sibling of <header>
+   with a hardcoded top offset, which didn't match the taller stacked
+   header-top on mobile and rendered over the hamburger button. */
 .mobile-nav {
-  position: fixed;
-  top: 112px;
+  position: absolute;
+  top: 100%;
   left: 0; right: 0;
   background: var(--navy);
   z-index: 1001;
@@ -320,7 +331,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   box-shadow: var(--shadow-lg);
 }
 .mobile-nav.open {
-  max-height: calc(100vh - 112px);
+  max-height: calc(100vh - 64px);
   overflow-y: auto;
   padding: 1rem 0;
 }
@@ -385,7 +396,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   object-fit: cover;
   object-position: center;
   z-index: 0;
-  /* Neutral fallback — no blue strip */
   background: #1a1a2e;
 }
 
@@ -394,7 +404,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: absolute;
   inset: 0;
   z-index: 1;
-  /* Red solid left → fades to transparent white right */
   background: linear-gradient(
     90deg,
     rgba(176, 57, 6, 0.959) 0%,
@@ -410,7 +419,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 2;
   width: 100%;
   padding: 3.5rem 2.5rem;
-  /* allow the social sidebar to sit beside the content area */
   display: flex;
   align-items: center;
 }
@@ -442,13 +450,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .br-desk { display: block; }
 
 /* ═══════════════ FIXED SOCIAL SIDEBAR ═══════════════ */
-/* Stays fixed on the right edge as the user scrolls — every page */
 .social-float {
   position: fixed;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1100;           /* above header (1000) */
+  z-index: 1100;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -460,7 +467,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   justify-content: center;
   width: 56px;
   height: 56px;
-  /* Light frosted background */
   background: rgba(255, 255, 255, 0.88);
   color: var(--navy);
   border-left: 4px solid var(--main-red);
@@ -471,15 +477,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   overflow: hidden;
 }
 
-/* Font Awesome icon sizing & animation */
 .social-float-btn i {
-  font-size: 1.35rem;      /* ~22px — clear and bold */
+  font-size: 1.35rem;
   line-height: 1;
   transition: transform var(--transition), color var(--transition);
   pointer-events: none;
 }
 
-/* Hover: slide wider + main-red fill + white icon */
 .social-float-btn:hover {
   background: var(--main-red);
   color: var(--white);
@@ -490,12 +494,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transform: scale(1.18);
 }
 
-/* Subtle separator between icons */
 .social-float-btn + .social-float-btn {
   border-top: 1px solid rgba(0, 0, 0, 0.07);
 }
 
-/* Rounded outer corners — top-left and bottom-left */
 .social-float-btn:first-child { border-radius: 8px 0 0 0; }
 .social-float-btn:last-child  { border-radius: 0 0 0 8px; }
 
@@ -559,11 +561,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ═══════════════ VIDEO SECTION ═══════════════ */
 .video-section {
   background: var(--white);
-  padding: 4rem 4rem 4rem;          /* no side padding — full bleed */
+  padding: 4rem 4rem 4rem;
   border-top: 1px solid var(--border);
 }
 .video-inner {
-  width: 100%;                /* stretch edge-to-edge */
+  width: 100%;
   max-width: 100%;
   margin: 0;
 }
@@ -575,10 +577,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: 0.04em;
   margin-bottom: 1.8rem;
   text-transform: uppercase;
-  padding: 0 1.5rem;          /* keep text from touching edges */
+  padding: 0 1.5rem;
 }
 .video-frame-wrap {
-  border-radius: 0;           /* flush with page edges */
+  border-radius: 0;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   background: #111;
@@ -586,7 +588,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .video-player-shell {
   position: relative;
   width: 100%;
-  padding-top: 56.25%;        /* 16:9 */
+  padding-top: 56.25%;
 }
 .corp-video-iframe {
   position: absolute;
@@ -612,7 +614,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .products-banner {
   display: flex;
   align-items: stretch;
-  width: 100%;                /* full width */
+  width: 100%;
   min-height: 320px;
   background: var(--off-white);
   overflow: hidden;
@@ -1257,25 +1259,22 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .header-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;  /* logo left, hamburger right */
+    justify-content: space-between;
     padding: 0 1.2rem;
     height: 64px;
     gap: 0;
   }
 
-  /* On mobile remove the desktop logo gap */
   .logo {
     margin-right: 0;
   }
 
-  /* header-actions: the only visible child is the hamburger, push it right */
   .header-actions {
     display: flex;
     align-items: center;
     margin-left: auto;
   }
 
-  /* Hamburger stays at the far-right edge */
   .hamburger {
     margin-left: 0;
   }
@@ -1297,14 +1296,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     max-width: 100%;
   }
 
-  /* Hero — keep full viewport height on tablet/mobile */
   .hero {
     min-height: calc(100dvh - 64px);
     height: calc(100dvh - 64px);
   }
   .hero-title { font-size: 2rem; }
   .br-desk { display: none; }
-  /* Hero content — on mobile text col fills full width */
   .hero-content {
     display: flex;
     flex-direction: column;
@@ -1318,7 +1315,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   }
   .hero-tagline { max-width: 100%; }
 
-  /* Fixed social sidebar — slightly smaller on tablet */
   .social-float-btn {
     width: 50px;
     height: 50px;
@@ -1326,18 +1322,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .social-float-btn i { font-size: 1.2rem; }
   .social-float-btn:hover { width: 58px; }
 
-  /* About — stack: image top, content below, both centered */
   .about-inner { flex-direction: column; align-items: center; gap: 2rem; }
   .about-image-wrap { flex: none; max-width: 100%; width: 100%; max-height: 280px; overflow: hidden; }
   .about-img { width: 100%; max-height: 280px; object-fit: contain; background: transparent; }
   .about-content { text-align: center; width: 100%; }
 
-  /* Footer */
   .footer-inner { flex-direction: column; gap: 2rem; padding: 2rem 1.5rem 2.5rem; }
   .footer-brand { flex: none; max-width: 100%; }
   .footer-nav-cols { justify-content: flex-start; gap: 2rem; }
 
-  /* Products banner */
   .products-banner-img { flex: 0 0 160px; }
 }
 
@@ -1394,13 +1387,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .footer-nav-cols { gap: 1.4rem; }
   .footer-bottom { padding: 1rem 1.5rem; }
 
-  /* Fixed social sidebar — compact on small mobile */
   .social-float-btn {
     width: 44px;
     height: 44px;
   }
   .social-float-btn i { font-size: 1.05rem; }
-  /* Disable the slide-wider effect on touch */
   .social-float-btn:hover { width: 44px; }
 }
 
@@ -1410,7 +1401,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .hero-title { font-size: 2rem; }
   .products-banner-title { font-size: 1.1rem; }
 
-  /* Fixed social sidebar — minimal on tiny screens */
   .social-float-btn {
     width: 38px;
     height: 38px;
@@ -1440,7 +1430,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 0 3.5rem;
 }
 
-/* Two-column grid: info | form */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1448,7 +1437,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 3.5rem;
 }
 
-/* Left column — title, intro, methods */
 .contact-title {
   font-size: 2rem;
   font-weight: 800;
@@ -1507,7 +1495,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 600;
 }
 
-/* Right column — form panel */
 .contact-form-wrap {
   background: #fff5f5;
   border: 1.5px solid rgba(236,36,38,0.15);
@@ -1562,7 +1549,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-top: 0.4rem;
 }
 
-/* Map */
 .contact-map {
   width: 100%;
   height: 480px;
@@ -1577,14 +1563,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: block;
 }
 
-/* Responsive — tablet */
 @media (max-width: 900px) {
   .contact-wrap { padding: 0 1.5rem; }
   .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .contact-map { height: 360px; }
 }
 
-/* Responsive — mobile */
 @media (max-width: 480px) {
   .contact-section { padding: 2.5rem 0 3rem; }
   .contact-wrap { padding: 0 1.2rem; }

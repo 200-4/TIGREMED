@@ -95,36 +95,41 @@
       </div>
 
     </div>
-  </header>
 
-  <!-- Mobile nav overlay -->
-  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
-    <ul class="mobile-nav-list">
-      <li><a href="index.php" class="mobile-link active">Home</a></li>
-      <li>
-        <a href="#" class="mobile-link">About Us<span class="mobile-arrow">&#9660;</span></a>
-        <ul class="mobile-submenu">
-          <li><a href="#" class="mobile-sublink">Our Journey</a></li>
-          <li><a href="#" class="mobile-sublink">Board of Directors</a></li>
-          <li><a href="#" class="mobile-sublink">Leadership</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="products.php" class="mobile-link">Products<span class="mobile-arrow">&#9660;</span></a>
-        <ul class="mobile-submenu">
-          <li><a href="products.php" class="mobile-sublink">Top Products</a></li>
-          <li><a href="products.php" class="mobile-sublink">Product Portfolio</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="services.php" class="mobile-link">Services<span class="mobile-arrow">&#9660;</span></a>
-        <ul class="mobile-submenu">
-          <li><a href="services.php" class="mobile-sublink">Distribution</a></li>
-          <li><a href="services.php" class="mobile-sublink">Supply Chain</a></li>
-          <li><a href="services.php" class="mobile-sublink">Market Access</a></li>
-        </ul>
-      </li>
-      <li><a href="#" class="mobile-link">Partners</a></li>
-      <li><a href="contact.php" class="mobile-link contact-mobile">Connect with Us</a></li>
-    </ul>
-  </nav>
+    <!-- Mobile nav overlay
+         NOTE: moved inside <header> so it can be position:absolute anchored
+         to .site-header (top:100%) instead of a fixed offset. This means it
+         always sits exactly below the header's real height — whether the
+         top info bar is showing, scrolled away, or stacked into two rows —
+         and it will never render over the hamburger/close icon again. -->
+    <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="index.php" class="mobile-link active">Home</a></li>
+        <li>
+          <a href="#" class="mobile-link">About Us<span class="mobile-arrow">&#9660;</span></a>
+          <ul class="mobile-submenu">
+            <li><a href="#" class="mobile-sublink">Our Journey</a></li>
+            <li><a href="#" class="mobile-sublink">Board of Directors</a></li>
+            <li><a href="#" class="mobile-sublink">Leadership</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="products.php" class="mobile-link">Products<span class="mobile-arrow">&#9660;</span></a>
+          <ul class="mobile-submenu">
+            <li><a href="products.php" class="mobile-sublink">Top Products</a></li>
+            <li><a href="products.php" class="mobile-sublink">Product Portfolio</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="services.php" class="mobile-link">Services<span class="mobile-arrow">&#9660;</span></a>
+          <ul class="mobile-submenu">
+            <li><a href="services.php" class="mobile-sublink">Distribution</a></li>
+            <li><a href="services.php" class="mobile-sublink">Supply Chain</a></li>
+            <li><a href="services.php" class="mobile-sublink">Market Access</a></li>
+          </ul>
+        </li>
+        <li><a href="#" class="mobile-link">Partners</a></li>
+        <li><a href="contact.php" class="mobile-link contact-mobile">Connect with Us</a></li>
+      </ul>
+    </nav>
+  </header>

@@ -40,6 +40,32 @@
   });
 })();
 
+/* ── 2. Hide header-top on scroll down, show on scroll up ── */
+(function () {
+  var headerTop = document.getElementById('header-top');
+  if (!headerTop) return;
+
+  var lastScrollY = window.scrollY;
+  var threshold = 10; // ignore tiny scroll jitters
+
+  window.addEventListener('scroll', function () {
+    var currentScrollY = window.scrollY;
+    var delta = currentScrollY - lastScrollY;
+
+    if (Math.abs(delta) < threshold) return;
+
+    if (delta > 0 && currentScrollY > 80) {
+      // scrolling down, past a small buffer from the top
+      headerTop.classList.add('scrolled-hidden');
+    } else {
+      // scrolling up
+      headerTop.classList.remove('scrolled-hidden');
+    }
+
+    lastScrollY = currentScrollY;
+  }, { passive: true });
+})();
+
 /* ── 2. Footer year ── */
 (function () {
   var el = document.getElementById('footer-year');
