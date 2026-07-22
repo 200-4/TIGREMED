@@ -317,9 +317,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   box-shadow: var(--shadow-lg);
 }
 .mobile-nav.open { transform: translateY(0); }
-.mobile-nav-list { display: flex; flex-direction: column; }
-.mobile-submenu {
+.mobile-nav-list > li.open > .mobile-submenu {
   display: flex;
+}
+.mobile-submenu {
+  display: none;
   flex-direction: column;
   padding-left: 1.3rem;
   margin-top: -0.2rem;
@@ -347,6 +349,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .mobile-link:hover, .mobile-link.active { background: rgba(236,36,38,0.2); }
 .contact-mobile { color: var(--main-red) !important; }
+.mobile-arrow {
+  float: right;
+  font-size: 0.65rem;
+  transition: transform var(--transition);
+}
+.mobile-nav-list > li.open > .mobile-link .mobile-arrow {
+  transform: rotate(180deg);
+}
 
 /* ═══════════════ HERO ═══════════════ */
 .hero {

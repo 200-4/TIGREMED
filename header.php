@@ -38,7 +38,7 @@
 
       <!-- logo_tigre_final -->
       <a href="index.php" class="logo" aria-label="Tigremed Pharma Home">
-        <img src="assets/logo_tigre_final.svg" alt="Tigremed Pharma" />
+        <img src="assets/Logo_tigre.svg" alt="Tigremed Pharma" />
       </a>
 
       <!-- Desktop nav — centred between logo and CTA -->
@@ -102,7 +102,7 @@
     <ul class="mobile-nav-list">
       <li><a href="index.php" class="mobile-link active">Home</a></li>
       <li>
-        <a href="#" class="mobile-link">About Us</a>
+        <a href="#" class="mobile-link">About Us<span class="mobile-arrow">&#9660;</span></a>
         <ul class="mobile-submenu">
           <li><a href="#" class="mobile-sublink">Our Journey</a></li>
           <li><a href="#" class="mobile-sublink">Board of Directors</a></li>
@@ -110,14 +110,14 @@
         </ul>
       </li>
       <li>
-        <a href="products.php" class="mobile-link">Products</a>
+        <a href="products.php" class="mobile-link">Products<span class="mobile-arrow">&#9660;</span></a>
         <ul class="mobile-submenu">
           <li><a href="products.php" class="mobile-sublink">Top Products</a></li>
           <li><a href="products.php" class="mobile-sublink">Product Portfolio</a></li>
         </ul>
       </li>
       <li>
-        <a href="services.php" class="mobile-link">Services</a>
+        <a href="services.php" class="mobile-link">Services<span class="mobile-arrow">&#9660;</span></a>
         <ul class="mobile-submenu">
           <li><a href="services.php" class="mobile-sublink">Distribution</a></li>
           <li><a href="services.php" class="mobile-sublink">Supply Chain</a></li>

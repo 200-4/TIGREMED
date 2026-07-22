@@ -6,6 +6,13 @@
   var nav = document.getElementById('mobile-nav');
   if (!btn || !nav) return;
 
+  function closeNav() {
+    nav.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    nav.setAttribute('aria-hidden', 'true');
+  }
+
   btn.addEventListener('click', function () {
     var isOpen = nav.classList.toggle('open');
     btn.classList.toggle('open', isOpen);
@@ -13,14 +20,23 @@
     nav.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
   });
 
-  /* Close mobile nav when a link inside it is clicked */
   nav.addEventListener('click', function (e) {
-    if (e.target.classList.contains('mobile-link')) {
-      nav.classList.remove('open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-      nav.setAttribute('aria-hidden', 'true');
+    var link = e.target.closest('.mobile-link');
+    if (!link) return;
+
+    var parentLi = link.parentElement;
+    var submenu = parentLi.querySelector(':scope > .mobile-submenu');
+
+    if (submenu) {
+      /* Parent link with a submenu: toggle it, don't navigate or close */
+      e.preventDefault();
+      submenu.classList.toggle('open');
+      parentLi.classList.toggle('open');
+      return;
     }
+
+    /* Leaf link: let it navigate, close the overlay */
+    closeNav();
   });
 })();
 
