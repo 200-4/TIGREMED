@@ -70,7 +70,7 @@
   </footer>
 
   <!-- ═══════════════ FIXED SOCIAL SIDEBAR ═══════════════ -->
-  <aside class="social-float" aria-label="Social media links">
+  <!--<aside class="social-float" aria-label="Social media links">
     <a href="#" class="social-float-btn" aria-label="Facebook">
       <i class="fa-brands fa-facebook-f"></i>
     </a>
@@ -83,7 +83,7 @@
     <a href="#" class="social-float-btn" aria-label="Instagram">
       <i class="fa-brands fa-instagram"></i>
     </a>
-  </aside>
+  </aside>-->
 
   <script src="main.js"></script>
 </body>

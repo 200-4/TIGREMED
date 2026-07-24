@@ -40,39 +40,63 @@
   });
 })();
 
-/* ── 2. Hide header-top on scroll down, show on scroll up ── */
+/* ── 2. Hide header-top on scroll down, show on scroll up ──
+   Uses hysteresis (separate show/hide thresholds) + state tracking +
+   requestAnimationFrame throttling. The previous version used one shared
+   boundary (currentScrollY > 80) with a small threshold, which caused
+   rapid add/remove flicker: collapsing header-top via max-height shifts
+   page content upward, and tiny natural scroll increments near that
+   single boundary kept flipping delta's sign several times a second. */
 (function () {
   var headerTop = document.getElementById('header-top');
   if (!headerTop) return;
 
   var lastScrollY = window.scrollY;
-  var threshold = 10; // ignore tiny scroll jitters
+  var isHidden = false;
+  var ticking = false;
 
-  window.addEventListener('scroll', function () {
+  var SHOW_BELOW = 60;   // always show while still near the very top
+  var HIDE_ABOVE = 140;  // only hide once scrolled comfortably past the top
+  var MIN_DELTA = 6;     // ignore sub-pixel jitter from trackpads/inertia
+
+  function update() {
     var currentScrollY = window.scrollY;
     var delta = currentScrollY - lastScrollY;
 
-    if (Math.abs(delta) < threshold) return;
-
-    if (delta > 0 && currentScrollY > 80) {
-      // scrolling down, past a small buffer from the top
-      headerTop.classList.add('scrolled-hidden');
-    } else {
-      // scrolling up
-      headerTop.classList.remove('scrolled-hidden');
+    if (currentScrollY <= SHOW_BELOW) {
+      if (isHidden) {
+        headerTop.classList.remove('scrolled-hidden');
+        isHidden = false;
+      }
+    } else if (Math.abs(delta) > MIN_DELTA) {
+      if (delta > 0 && currentScrollY > HIDE_ABOVE && !isHidden) {
+        headerTop.classList.add('scrolled-hidden');
+        isHidden = true;
+      } else if (delta < 0 && isHidden) {
+        headerTop.classList.remove('scrolled-hidden');
+        isHidden = false;
+      }
     }
 
     lastScrollY = currentScrollY;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
   }, { passive: true });
 })();
 
-/* ── 2. Footer year ── */
+/* ── 3. Footer year ── */
 (function () {
   var el = document.getElementById('footer-year');
   if (el) el.textContent = new Date().getFullYear();
 })();
 
-/* ── 3. Scroll-reveal ── */
+/* ── 4. Scroll-reveal ── */
 (function () {
   var items = document.querySelectorAll('.reveal');
   if (!items.length) return;
@@ -87,13 +111,6 @@
   }, { threshold: 0.12 });
 
   items.forEach(function (el) { io.observe(el); });
-})();
-
-/* ── 4. Header topbar remains visible ── */
-(function () {
-  var topbar = document.getElementById('header-top');
-  if (!topbar) return;
-  topbar.classList.remove('header-top-hidden');
 })();
 
 /* ── 5. Product carousel controls ── */
