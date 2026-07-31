@@ -16,17 +16,34 @@
 
   <!-- ═══════════════ HEADER ═══════════════ -->
   <header class="site-header" id="site-header">
-    <div class="header-top" id="header-top">
+      <div class="header-top" id="header-top">
       <div class="header-top-content">
         <div class="header-contact-info">
+
           <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <span>+256 700 317380</span>
+            <span class="contact-icon"><i class="fas fa-phone"></i></span>
+            <span class="contact-text">
+              <span class="contact-label">Call Us:</span>
+              <span class="contact-value">+256 700 317380</span>
+            </span>
           </div>
+
+          <div class="contact-item contact-item--secondary">
+            <span class="contact-icon"><i class="fas fa-phone"></i></span>
+            <span class="contact-text">
+              <span class="contact-label">Reception:</span>
+              <span class="contact-value">+256 414 670700</span>
+            </span>
+          </div>
+
           <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <span>info@tigeremedpharma.com</span>
+            <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+            <span class="contact-text">
+              <span class="contact-label">Email Us:</span>
+              <span class="contact-value">info@tigeremedpharma.com</span>
+            </span>
           </div>
+
         </div>
         <div class="header-address">
           Plot 93, Chrisams building, Kafeero Road, Kampala
@@ -38,7 +55,7 @@
 
       <!-- logo_tigre_final -->
       <a href="index.php" class="logo" aria-label="Tigremed Pharma Home">
-        <img src="assets/Logo_tigre.svg" alt="Tigremed Pharma" />
+        <img src="assets/Tigremed_final_logo.svg" alt="Tigremed Pharma" />
       </a>
 
       <!-- Desktop nav — centred between logo and CTA -->
@@ -52,9 +69,8 @@
               About Us <span class="arrow">&#9660;</span>
             </a>
             <ul class="dropdown">
-              <li><a href="#">Our Journey</a></li>
+              <li><a href="our-journey.php">Our Journey</a></li>
               <li><a href="#">Board of Directors</a></li>
-              <li><a href="#">Leadership</a></li>
             </ul>
           </li>
 
@@ -74,12 +90,11 @@
             </a>
             <ul class="dropdown">
               <li><a href="services.php">Distribution</a></li>
-              <li><a href="services.php">Supply Chain</a></li>
               <li><a href="services.php">Market Access</a></li>
             </ul>
           </li>
 
-          <li><a href="#" class="nav-link">Partners</a></li>
+          <li><a href="partners.php" class="nav-link">Partners</a></li>
 
         </ul>
       </nav>

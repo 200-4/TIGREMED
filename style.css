@@ -131,20 +131,47 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .header-contact-info {
   display: flex;
   align-items: center;
-  gap: 1.1rem;
+  gap: 1.4rem;
   flex-wrap: wrap;
 }
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.6rem;
   color: rgba(255,255,255,0.95);
 }
-.contact-item i {
+/* Circular icon badge, sitting to the left of the stacked label/value */
+.contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  flex-shrink: 0;
+}
+.contact-icon i {
   color: var(--white);
-  min-width: 16px;
+  font-size: 0.72rem;
   text-align: center;
-  font-size: 0.85em;
+}
+/* Label above, value below — stacked in a column to the right of the icon */
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+.contact-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+.contact-value {
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 .header-address {
   color: rgba(255,255,255,0.95);
@@ -152,7 +179,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 500;
   line-height: 1.3;
   text-align: right;
-  white-space: pre-wrap;
+  /* white-space: pre-wrap; */
   max-width: 320px;
 }
 .header-address br {
@@ -186,7 +213,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   padding: 0 2.5rem;
   min-height: 90px;
-  gap: 2rem;
+  gap: 0;
   position: relative;
 }
 
@@ -1034,6 +1061,50 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     width: 100%;
   }
 }
+/* ==========PARTNERS PAGE =============== */
+.partners-hero {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(90deg, #e0432c 0%, #f5871f 30%, rgba(247,183,51,0.55) 55%, rgba(247,183,51,0.15) 75%), url('assets/business_concept1.png') center/cover no-repeat;
+  background-color: #e0432c;
+}
+.partners-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(224,67,44,0.85) 0%, rgba(245,135,31,0.78) 32%, rgba(247,183,51,0.35) 58%, rgba(247,183,51,0.05) 78%);
+  pointer-events: none;
+}
+.partners-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.partners-text {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.5rem, 3.4vw, 2.125rem);
+  font-weight: 400;
+  color: #1c1c1c;
+  min-height: 1.4em;
+}
+.partners-text .cursor-blink {
+  display: inline-block;
+  width: 2px;
+  background: #1c1c1c;
+  margin-left: 2px;
+  animation: blink 0.9s steps(1) infinite;
+}
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
 
 /* ═══════════════ PRODUCT DETAIL PAGE ═══════════════ */
 .product-banner {
@@ -1161,10 +1232,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .accordion-trigger:focus-visible { outline: 3px solid rgba(255,255,255,0.55); outline-offset: 2px; }
 .accordion-trigger .chevron { transition: transform 0.25s ease; font-size: 0.8rem; margin-left: 0.6rem; flex-shrink: 0; }
 .accordion-item.is-open .chevron { transform: rotate(180deg); }
-.accordion-trigger[data-key="composition"]{ background: linear-gradient(90deg, var(--orange), var(--main-red)); }
-.accordion-trigger[data-key="dosage"]{ background: linear-gradient(90deg, var(--main-red), var(--orange)); }
-.accordion-trigger[data-key="indication"]{ background: linear-gradient(90deg, var(--orange), var(--main-red)); }
-.accordion-trigger[data-key="pharmacovigilance"]{ background: linear-gradient(90deg, var(--main-red), var(--orange)); }
+.accordion-trigger[data-key="composition"]{ 
+  background: linear-gradient(90deg, var(--orange), var(--main-red)); 
+}
+.accordion-trigger[data-key="dosage"]{ 
+  background: linear-gradient(90deg, var(--orange), var(--main-red)); 
+}
+
 .accordion-panel {
   max-height: 0;
   overflow: hidden;
@@ -1227,27 +1301,45 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     margin-left: 0;
   }
 
-  /* Top info bar — stack contact info above address, both full width,
-     kept compact so the bar stays shorter than header-inner (64px). */
+  /* Top info bar — stack contact info above address, both full width.
+     With the icon-badge + stacked label/value layout, three items no
+     longer fit comfortably in one row on narrow screens, so Reception
+     is hidden here and only Call Us + Email Us remain — kept compact so
+     the bar stays shorter than header-inner (64px). */
   .header-top {
-    max-height: 60px;
+    max-height: 62px;
   }
   .header-top-content {
     flex-direction: column;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.3rem;
     padding: 0.4rem 1.2rem;
   }
   .header-contact-info {
     width: 100%;
-    gap: 0.6rem;
+    gap: 1.2rem;
     justify-content: center;
-    font-size: 0.72rem;
+  }
+  .contact-item--secondary {
+    display: none;   /* Reception — hidden on tablet/mobile, kept in the DOM */
+  }
+  .contact-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .contact-icon i {
+    font-size: 0.62rem;
+  }
+  .contact-label {
+    font-size: 0.56rem;
+  }
+  .contact-value {
+    font-size: 0.68rem;
   }
   .header-address {
     text-align: center;
     max-width: 100%;
-    font-size: 0.7rem;
+    font-size: 0.64rem;
   }
 
   .hero {
@@ -1307,18 +1399,31 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   }
 
   .header-top {
-    max-height: 52px;
+    max-height: 70px;   /* address may wrap to 2 lines at this width */
   }
   .header-top-content {
     padding: 0.3rem 0.9rem;
-    gap: 0.2rem;
+    gap: 0.25rem;
   }
   .header-contact-info {
-    gap: 0.45rem;
-    font-size: 0.66rem;
+    gap: 0.9rem;
+  }
+  .contact-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .contact-icon i {
+    font-size: 0.56rem;
+  }
+  .contact-label {
+    font-size: 0.5rem;
+  }
+  .contact-value {
+    font-size: 0.6rem;
   }
   .header-address {
-    font-size: 0.64rem;
+    font-size: 0.58rem;
+    line-height: 1.25;
   }
 
   .logo img { height: 80px; }
@@ -1387,6 +1492,23 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+/* ====== OUR JOURNEY =========== */
+.our-journey-hero {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(90deg, #e0432c 0%, #f5871f 30%, rgba(247,183,51,0.55) 55%, rgba(247,183,51,0.15) 75%), url('assets/african-american.png') center/cover no-repeat;
+  background-color: #e0432c;
+}
+.our-journey-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(224,67,44,0.85) 0%, rgba(245,135,31,0.78) 32%, rgba(247,183,51,0.35) 58%, rgba(247,183,51,0.05) 78%);
+  pointer-events: none;
 }
 
 /* ═══════════════ CONTACT PAGE ═══════════════ */
@@ -1538,4 +1660,281 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .contact-title { font-size: 1.6rem; }
   .contact-form-wrap { padding: 1.8rem 1.2rem; }
   .contact-map { height: 280px; }
+}
+
+/* ═══════════════ OUR JOURNEY PAGE ═══════════════ */
+
+/* Intro: equal-width text | image. The image has no card/frame — it uses
+   mix-blend-mode: multiply (same trick as .about-img) so a white-background
+   PNG blends straight into the section background instead of showing a box. */
+.journey-hero-section {
+  background: var(--white);
+  padding: 4rem 2.5rem;
+}
+.journey-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.journey-text,
+.journey-image-wrap {
+  flex: 1 1 50%;
+  max-width: 50%;
+}
+.journey-paragraph {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 1.4rem;
+}
+.journey-paragraph:last-child { margin-bottom: 0; }
+.journey-image-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.journey-img {
+  width: 100%;
+  height: auto;
+  max-width: 480px;
+  object-fit: contain;
+  background: transparent;
+  mix-blend-mode: multiply;
+}
+
+/* Vision / Mission — centered statement blocks */
+.mission-vision-section {
+  background: var(--off-white);
+  padding: 4rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.mission-vision-block {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.mv-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.2rem;
+
+  /* Apply gradient as background */
+  background-image: linear-gradient(90deg, #e0432c 0%, #f5871f 30%, rgba(247,183,51,0.85) 55%, rgba(247,183,51,1.0) 75%);
+  
+  /* Clip background to text outline */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* Make text fill transparent so gradient shows through */
+  -webkit-text-fill-color: transparent;
+  color: transparent; 
+  
+  display: inline-block; 
+}
+.mv-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+/* Our Team — 3-up grid, hover swaps the centered title for a paragraph */
+.journey-team-section {
+  background: var(--white);
+  padding: 4rem 2.5rem 5rem;
+}
+.team-title {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2.5rem;
+}
+.team-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+.team-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  aspect-ratio: 3 / 4;
+}
+.team-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+.team-card:hover .team-img {
+  transform: scale(1.05);
+}
+.team-caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(26,26,46,0.15) 0%, rgba(26,26,46,0.65) 100%);
+}
+.team-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.03em;
+  transition: opacity var(--transition), transform var(--transition);
+}
+.team-desc {
+  position: absolute;
+  inset: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--transition), transform var(--transition);
+  pointer-events: none;
+}
+.team-card:hover .team-name {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+.team-card:hover .team-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Tablet / Mobile — ≤900px ── */
+@media (max-width: 900px) {
+  .journey-hero-section {
+    padding: 2.5rem 1.5rem;
+  }
+  .journey-inner {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .journey-text,
+  .journey-image-wrap {
+    max-width: 100%;
+    flex: none;
+    width: 100%;
+  }
+  .mission-vision-section {
+    padding: 2.5rem 1.5rem;
+    gap: 2rem;
+  }
+  .mv-title { font-size: 1.35rem; }
+  .journey-team-section {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+}
+
+/* ── Small mobile — ≤480px ── */
+@media (max-width: 480px) {
+  .mv-title { font-size: 1.2rem; }
+  .mv-text { font-size: 0.92rem; }
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-title { font-size: 1.2rem; }
+}
+
+/* ═══════════════ OUR PARTNERS ═══════════════ */
+.partners-section {
+  background: var(--off-white);
+  padding: 4rem 1.5rem 4.5rem;
+}
+.partners-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.partners-inner .range-header {
+  text-align: center;
+  margin-bottom: 2.8rem;
+}
+.partners-inner .range-subtitle {
+  max-width: 560px;
+  margin: 0.8rem auto 0;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.4rem;
+}
+
+/* Logo card — plain white tile, logo grayscale by default and reveals full
+   color + a slight lift on hover (standard modern "partner strip" pattern) */
+.partner-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.4rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.partner-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+.partner-logo {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.65);
+  transition: filter var(--transition);
+}
+.partner-card:hover .partner-logo {
+  filter: grayscale(0) opacity(1);
+}
+
+/* ── Tablet — ≤900px ── */
+@media (max-width: 900px) {
+  .partners-section {
+    padding: 2.5rem 1.2rem 3rem;
+  }
+  .partners-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .partner-card {
+    padding: 1.1rem 1rem;
+  }
+}
+
+/* ── Small mobile — ≤480px ── */
+@media (max-width: 480px) {
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  .partner-card {
+    padding: 0.9rem 0.8rem;
+  }
 }

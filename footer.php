@@ -5,7 +5,7 @@
       <!-- Brand column -->
       <div class="footer-brand">
         <a href="#" class="footer-logo" aria-label="Tigremed Home">
-          <img src="assets/footer_logo_tigre.svg" alt="Tigremed Pharma" height="70" width="auto" />
+          <img src="assets/Tigremed_FINAL-footer.svg" alt="Tigremed Pharma" height="70" width="auto" />
         </a>
 
         <p class="footer-desc">

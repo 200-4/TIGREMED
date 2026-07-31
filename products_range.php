@@ -15,7 +15,7 @@
 
     <article class="product-card">
         <div class="product-card-img">
-        <img src="assets/venocid.jpeg" alt="Venocid" loading="lazy" width="200" height="140"
+        <img src="assets/venocid.png" alt="Venocid" loading="lazy" width="200" height="140"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
 
         </div>

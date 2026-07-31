@@ -8,7 +8,7 @@
       <!-- Background video -->
       <video class="hero-video" autoplay muted loop playsinline preload="none" aria-hidden="true">
         <!-- Replace src with actual video path -->
-        <source src="assets/hero-bg.mp4" type="video/mp4" />
+        <source src="assets/introduction_video.mp4" type="video/mp4" />
       </video>
 
       <!-- Orange → white gradient overlay -->
@@ -17,8 +17,8 @@
       <div class="hero-content reveal delay-1">
         <!-- Text column — 60% width -->
         <div class="hero-text-col">
-          <h1 class="hero-title">
-            Enhancing Patients' Lives
+          <h1 class="hero-title" id="heroTitle">
+            <span class="cursor-blink"></span>
           </h1>
           <p class="hero-tagline">
             To enhance patients' lives, inspire hope and help provide<br class="br-desk"/>

@@ -52,29 +52,50 @@
   if (!headerTop) return;
 
   var lastScrollY = window.scrollY;
-  var isHidden = false;
   var ticking = false;
 
-  var SHOW_BELOW = 60;   // always show while still near the very top
-  var HIDE_ABOVE = 140;  // only hide once scrolled comfortably past the top
-  var MIN_DELTA = 6;     // ignore sub-pixel jitter from trackpads/inertia
+  // Instead of reacting to a single frame's scroll direction (which flips
+  // constantly during natural/inertial scrolling — trackpad deceleration,
+  // rubber-band overshoot, etc.), require a SUSTAINED scroll distance in one
+  // consistent direction before toggling. Any reversal resets the counter
+  // rather than firing a toggle. This is the same tolerance technique
+  // libraries like headroom.js use, and it's what actually stops the shake —
+  // the previous per-frame delta check was too sensitive to real-world,
+  // non-linear scroll input.
+  var SHOW_BELOW = 60;        // always show while still near the very top
+  var HIDE_ABOVE = 140;       // only hide once scrolled comfortably past the top
+  var TOGGLE_DISTANCE = 40;   // must accumulate this much scroll in one direction
+
+  var accumulator = 0;
+  var lastDirection = 0;      // 1 = down, -1 = up, 0 = none yet
 
   function update() {
-    var currentScrollY = window.scrollY;
+    var currentScrollY = Math.max(0, window.scrollY);
     var delta = currentScrollY - lastScrollY;
+    var isHidden = headerTop.classList.contains('scrolled-hidden');
 
     if (currentScrollY <= SHOW_BELOW) {
-      if (isHidden) {
-        headerTop.classList.remove('scrolled-hidden');
-        isHidden = false;
+      if (isHidden) headerTop.classList.remove('scrolled-hidden');
+      accumulator = 0;
+      lastDirection = 0;
+    } else if (delta !== 0) {
+      var direction = delta > 0 ? 1 : -1;
+
+      if (direction === lastDirection) {
+        accumulator += Math.abs(delta);
+      } else {
+        // direction reversed — restart the count instead of carrying it over
+        accumulator = Math.abs(delta);
+        lastDirection = direction;
       }
-    } else if (Math.abs(delta) > MIN_DELTA) {
-      if (delta > 0 && currentScrollY > HIDE_ABOVE && !isHidden) {
-        headerTop.classList.add('scrolled-hidden');
-        isHidden = true;
-      } else if (delta < 0 && isHidden) {
-        headerTop.classList.remove('scrolled-hidden');
-        isHidden = false;
+
+      if (accumulator >= TOGGLE_DISTANCE) {
+        if (direction > 0 && currentScrollY > HIDE_ABOVE && !isHidden) {
+          headerTop.classList.add('scrolled-hidden');
+        } else if (direction < 0 && isHidden) {
+          headerTop.classList.remove('scrolled-hidden');
+        }
+        accumulator = 0; // must build back up before the next toggle
       }
     }
 
@@ -161,6 +182,110 @@
 /* ── 7. Products page hero typing animation ── */
 (function () {
   var heroTextEl = document.getElementById('heroText');
+  if (!heroTextEl) return;
+
+  var heroMessages = [
+    'Trusted globally',
+    'Innovation-led research',
+    'Advancing patient care'
+  ];
+
+  var msgIndex = 0;
+  var charIndex = 0;
+  var typing = true;
+  var typeSpeed = 55;
+  var eraseSpeed = 30;
+  var holdTime = 1600;
+
+  function tick() {
+    var current = heroMessages[msgIndex];
+
+    if (typing) {
+      charIndex++;
+      heroTextEl.innerHTML = current.slice(0, charIndex) + '<span class="cursor-blink"></span>';
+      if (charIndex >= current.length) {
+        typing = false;
+        setTimeout(tick, holdTime);
+        return;
+      }
+      setTimeout(tick, typeSpeed);
+    } else {
+      charIndex--;
+      heroTextEl.innerHTML = current.slice(0, charIndex) + '<span class="cursor-blink"></span>';
+      if (charIndex <= 0) {
+        typing = true;
+        msgIndex = (msgIndex + 1) % heroMessages.length;
+        setTimeout(tick, 300);
+        return;
+      }
+      setTimeout(tick, eraseSpeed);
+    }
+  }
+
+  var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    heroTextEl.innerHTML = heroMessages[0] + '<span class="cursor-blink"></span>';
+  } else {
+    tick();
+  }
+})();
+
+//Index Page Hero TEXT TYPING ANIMATION
+
+(function () {
+  var heroTextEl = document.getElementById('partnerText');
+  if (!heroTextEl) return;
+
+  var heroMessages = [
+    'Our Pipeline is a Strategic Edge',
+    'We value our Partners',
+    'Become Our Partner Today'
+  ];
+
+  var msgIndex = 0;
+  var charIndex = 0;
+  var typing = true;
+  var typeSpeed = 55;
+  var eraseSpeed = 30;
+  var holdTime = 1600;
+
+  function tick() {
+    var current = heroMessages[msgIndex];
+
+    if (typing) {
+      charIndex++;
+      heroTextEl.innerHTML = current.slice(0, charIndex) + '<span class="cursor-blink"></span>';
+      if (charIndex >= current.length) {
+        typing = false;
+        setTimeout(tick, holdTime);
+        return;
+      }
+      setTimeout(tick, typeSpeed);
+    } else {
+      charIndex--;
+      heroTextEl.innerHTML = current.slice(0, charIndex) + '<span class="cursor-blink"></span>';
+      if (charIndex <= 0) {
+        typing = true;
+        msgIndex = (msgIndex + 1) % heroMessages.length;
+        setTimeout(tick, 300);
+        return;
+      }
+      setTimeout(tick, eraseSpeed);
+    }
+  }
+
+  var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    heroTextEl.innerHTML = heroMessages[0] + '<span class="cursor-blink"></span>';
+  } else {
+    tick();
+  }
+})();
+
+
+// ===== Partners Page Hero Animation
+(function () {
+  var heroTextEl = document.getElementById('heroTitle');
   if (!heroTextEl) return;
 
   var heroMessages = [
