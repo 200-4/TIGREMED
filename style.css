@@ -1441,12 +1441,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     min-height: calc(100dvh - 58px);
     height: calc(100dvh - 58px);
   }
-  .hero-title { font-size: 5rem; }
+  .hero-title { font-size: 3rem; }
   .hero-overlay {
     background: linear-gradient(
       160deg,
-      rgba(236,36,38,0.92) 0%,
-      rgba(236,36,38,0.78) 45%,
+      rgba(245,135,31,0.85) 0%
+      rgba(224,67,44,0.78) 32%,
       rgba(255,255,255,0.22) 100%
     );
   }
