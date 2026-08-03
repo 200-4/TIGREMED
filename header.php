@@ -55,7 +55,7 @@
 
       <!-- logo_tigre_final -->
       <a href="index.php" class="logo" aria-label="Tigremed Pharma Home">
-        <img src="assets/Tigremed_final_logo.svg" alt="Tigremed Pharma" />
+        <img src="assets/Tigremed_final.svg" alt="Tigremed Pharma" />
       </a>
 
       <!-- Desktop nav — centred between logo and CTA -->
@@ -79,7 +79,6 @@
               Products <span class="arrow">&#9660;</span>
             </a>
             <ul class="dropdown">
-              <li><a href="products.php">Top Products</a></li>
               <li><a href="products.php">Product Portfolio</a></li>
             </ul>
           </li>

@@ -46,15 +46,14 @@
         <div class="footer-col">
           <h4 class="footer-col-title">Products</h4>
           <ul class="footer-list">
-            <li><a href="#">Top Products</a></li>
-            <li><a href="#">Product Portfolio</a></li>
+            <li><a href="products.php">Product Portfolio</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4 class="footer-col-title">Innovation</h4>
           <ul class="footer-list">
-            <li><a href="#">Partnerships</a></li>
+            <li><a href="partners.php">Partnerships</a></li>
           </ul>
           <a href="assets/tigremed-factsheet.pdf" download class="btn btn-factsheet" aria-label="Download Fact Sheet PDF">
             Download FactSheet

@@ -230,7 +230,7 @@
   }
 })();
 
-//Index Page Hero TEXT TYPING ANIMATION
+//PARTNERS Page Hero TEXT TYPING ANIMATION
 
 (function () {
   var heroTextEl = document.getElementById('partnerText');
@@ -283,15 +283,15 @@
 })();
 
 
-// ===== Partners Page Hero Animation
+// ===== INDEX Page Hero Animation
 (function () {
   var heroTextEl = document.getElementById('heroTitle');
   if (!heroTextEl) return;
 
   var heroMessages = [
-    'Trusted globally',
-    'Innovation-led research',
-    'Advancing patient care'
+    'Good Service',
+    'Innovation-led',
+    'Advanced Customer care'
   ];
 
   var msgIndex = 0;

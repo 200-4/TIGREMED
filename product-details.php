@@ -54,7 +54,7 @@
 <?php include 'header.php'; ?>
 
 <main>
-  <section class="product-banner product-banner--<?php echo htmlspecialchars($productSlug, ENT_QUOTES); ?>">
+  <section class="product-banner product-banner--<?php echo htmlspecialchars($productSlug, ENT_QUOTES); ?>" style="--product-bg-image: url('<?php echo htmlspecialchars($product['image'], ENT_QUOTES); ?>');">
     <div class="banner-content">
       <span class="banner-eyebrow"><?php echo htmlspecialchars($product['eyebrow'], ENT_QUOTES); ?></span>
       <h1 class="banner-title"><?php echo htmlspecialchars($product['title'], ENT_QUOTES); ?></h1>
