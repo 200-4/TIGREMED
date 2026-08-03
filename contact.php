@@ -17,9 +17,7 @@
 
             <a href="tel:+256700317380" class="contact-method">
               <span class="contact-method-icon">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.06 0h3a2 2 0 012 1.72c.13 1 .37 1.97.71 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.18-1.18a2 2 0 012.11-.45c.93.34 1.9.58 2.9.71A2 2 0 0122 16.92z"/>
-                </svg>
+                <i class="fas fa-phone"></i></span>
               </span>
               <div class="contact-method-text">
                 <span class="contact-method-label">Call Us</span>

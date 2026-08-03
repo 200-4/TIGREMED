@@ -124,13 +124,11 @@
           <ul class="mobile-submenu">
             <li><a href="#" class="mobile-sublink">Our Journey</a></li>
             <li><a href="#" class="mobile-sublink">Board of Directors</a></li>
-            <li><a href="#" class="mobile-sublink">Leadership</a></li>
           </ul>
         </li>
         <li>
           <a href="products.php" class="mobile-link">Products<span class="mobile-arrow">&#9660;</span></a>
           <ul class="mobile-submenu">
-            <li><a href="products.php" class="mobile-sublink">Top Products</a></li>
             <li><a href="products.php" class="mobile-sublink">Product Portfolio</a></li>
           </ul>
         </li>
@@ -138,7 +136,6 @@
           <a href="services.php" class="mobile-link">Services<span class="mobile-arrow">&#9660;</span></a>
           <ul class="mobile-submenu">
             <li><a href="services.php" class="mobile-sublink">Distribution</a></li>
-            <li><a href="services.php" class="mobile-sublink">Supply Chain</a></li>
             <li><a href="services.php" class="mobile-sublink">Market Access</a></li>
           </ul>
         </li>
