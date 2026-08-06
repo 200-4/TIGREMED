@@ -11,6 +11,66 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css" />
+  <!-- ═══════════════ STRUCTURED DATA (JSON-LD) ═══════════════
+       Add this inside <head>, after the existing <link rel="stylesheet">
+       tags. Update every URL below to your real live domain first —
+       schema pointing at the wrong domain is worse than no schema.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://tigremedpharma.com/#organization",
+    "name": "Tigremed Pharma Co Ltd",
+    "alternateName": "Tigremed Pharma",
+    "url": "https://tigremedpharma.com/",
+    "logo": "https://tigremedpharma.com/assets/Tigremed_final.svg",
+    "description": "Tigremed Pharma Co Ltd is a Uganda-focused pharmaceutical market access, distribution and healthcare supply chain company committed to improving the availability of quality medicines, medical devices and healthcare solutions.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plot 93, Chrisams Building, Kafeero Road",
+      "addressLocality": "Kampala",
+      "addressCountry": "UG"
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+256-700-317380",
+        "contactType": "customer service",
+        "areaServed": "UG",
+        "availableLanguage": ["English"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+256-414-670700",
+        "contactType": "reception",
+        "areaServed": "UG"
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "info@tigeremedpharma.com",
+        "contactType": "customer service"
+      }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/REPLACE-WITH-REAL-HANDLE",
+      "https://twitter.com/REPLACE-WITH-REAL-HANDLE",
+      "https://www.facebook.com/REPLACE-WITH-REAL-HANDLE"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://tigremedpharma.com/#website",
+    "name": "Tigremed Pharma Co Ltd",
+    "url": "https://tigremedpharma.com/",
+    "publisher": { "@id": "https://tigremedpharma.com/#organization" }
+  }
+  </script>
+  
 </head>
 <body>
 

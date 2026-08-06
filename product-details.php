@@ -50,8 +50,45 @@
   );
 
   $product = isset($products[$productSlug]) ? $products[$productSlug] : $products['progermila'];
+
+  // Site base URL — used to build absolute URLs for structured data below.
+  // Replace with your real live domain (must match what's in schema-organization.html).
+  $siteUrl = 'https://tigremedpharma.com';
+
+  $productSchema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'Product',
+    'name' => $product['title'],
+    'description' => isset($product['sections'][0]['body']) ? strip_tags($product['sections'][0]['body']) : $product['title'],
+    'image' => $siteUrl . '/' . ltrim($product['image'], '/'),
+    'url' => $siteUrl . '/product-details.php?product=' . rawurlencode($productSlug),
+    'brand' => array(
+      '@type' => 'Brand',
+      'name' => 'Tigremed Pharma Co Ltd'
+    ),
+    'manufacturer' => array(
+      '@id' => $siteUrl . '/#organization'
+    )
+  );
+
+  $breadcrumbSchema = array(
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    'itemListElement' => array(
+      array('@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => $siteUrl . '/index.php'),
+      array('@type' => 'ListItem', 'position' => 2, 'name' => 'Products', 'item' => $siteUrl . '/products.php'),
+      array('@type' => 'ListItem', 'position' => 3, 'name' => $product['title'], 'item' => $siteUrl . '/product-details.php?product=' . rawurlencode($productSlug)),
+    )
+  );
 ?>
 <?php include 'header.php'; ?>
+
+<!-- Product + Breadcrumb structured data — page-specific, so it's generated
+     here (JSON-LD is valid anywhere in the document, not just <head>) rather
+     than in header.php which only knows the site-wide Organization/WebSite
+     data in schema-organization.html. -->
+<script type="application/ld+json"><?php echo json_encode($productSchema, JSON_UNESCAPED_SLASHES); ?></script>
+<script type="application/ld+json"><?php echo json_encode($breadcrumbSchema, JSON_UNESCAPED_SLASHES); ?></script>
 
 <main>
   <section class="product-banner product-banner--<?php echo htmlspecialchars($productSlug, ENT_QUOTES); ?>" style="--product-bg-image: url('<?php echo htmlspecialchars($product['image'], ENT_QUOTES); ?>');">
