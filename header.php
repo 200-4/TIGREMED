@@ -16,7 +16,19 @@
        tags. Update every URL below to your real live domain first —
        schema pointing at the wrong domain is worse than no schema.
   -->
+    <!-- ═══════════════ FAVICON ═══════════════
+       Files live in /favicon/ (see your TIGREMED folder listing). Order
+       matters for browser fallback: modern browsers pick the SVG (crisp at
+       any size); older browsers and the address-bar tab fall back to
+       favicon.ico; the 96x96 PNG covers cases that want a fixed-size
+       bitmap. apple-touch-icon is what iOS uses for home-screen bookmarks. -->
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="favicon/site.webmanifest" />    
   <script type="application/ld+json">
+    
   {
     "@context": "https://schema.org",
     "@type": "Organization",
