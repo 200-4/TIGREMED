@@ -164,14 +164,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .contact-label {
   font-size: 0.62rem;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   opacity: 0.85;
 }
 .contact-value {
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 400;
 }
 .header-address {
   color: rgba(255,255,255,0.95);

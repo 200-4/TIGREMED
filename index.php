@@ -36,7 +36,7 @@
 
         <div class="about-image-wrap reveal delay-2">
           <img
-            src="assets/distribute.png"
+            src="assets/van_tigre_th.png"
             alt="Tigremed pharmaceutical distribution"
             class="about-img"
             loading="lazy"
