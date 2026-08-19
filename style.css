@@ -59,8 +59,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .btn:active { transform: translateY(0); }
 
 .btn-outline {
-  border: 2px solid var(--white);
-  color: var(--white);
+  border: 2px solid var(--main-red);
+  color: var(--main-red);
   background: transparent;
 }
 .btn-outline:hover { background: var(--white); color: var(--main-red); }
@@ -105,7 +105,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .header-top {
   position: relative;
   z-index: 1;
-  background: linear-gradient(90deg, rgba(224, 67, 44, 1), rgba(245, 135, 31, 1));
+  background: var(--main-red);
   color: var(--white);
   max-height: 70px;   /* comfortably below header-inner's 90px on desktop */
   overflow: hidden;
@@ -425,9 +425,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 1;
   background: linear-gradient(
     90deg,
-    rgba(176, 57, 6, 0.759) 0%,
-    rgba(185, 95, 5, 0.65) 30%,
-    rgba(236, 116, 36, 0.15) 55%,
+    rgba(225, 223, 222, 0.568) 0%,
+    rgba(246, 244, 242, 0.388) 30%,
+    rgba(130, 123, 119, 0.15) 55%,
     rgba(255,255,255,0.07) 80%,
     rgba(255,255,255,0.03) 100%
   );
@@ -448,14 +448,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-title {
   font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 800;
-  color: var(--navy);
+  color: var(--main-red);
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 1.4rem;
 }
 .hero-tagline {
   font-size: clamp(0.9rem, 1.6vw, 1.05rem);
-  color: var(--navy);
+  color: var(--main-red);
   font-weight: 500;
   max-width: 480px;
   line-height: 1.65;
@@ -818,8 +818,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ═══════════════ FOOTER ═══════════════ */
 .site-footer {
-  background: linear-gradient(110deg, rgba(236,36,38,0.18) 0%, rgba(236,36,38,0.55) 60%, rgba(245, 135, 31, 1)),
-              linear-gradient(to bottom, #fff5f5, #f9d0d0);
+  background: var(--main-red);
   padding: 0;
 }
 .footer-inner {
@@ -832,7 +831,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .footer-logo { display: block; margin-bottom: 1.2rem; }
 .footer-desc {
   font-size: 0.84rem;
-  color: #3d1f1f;
+  color: var(--white);
   line-height: 1.75;
   margin-bottom: 1.6rem;
 }
@@ -893,7 +892,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .footer-col-title {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--text);
+  color: var(--white);
   margin-bottom: 0.9rem;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -901,7 +900,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .footer-list li { margin-bottom: 0.5rem; }
 .footer-list a {
   font-size: 0.85rem;
-  color: #3d1f1f;
+  color: var(--white);
   transition: color var(--transition);
 }
 .footer-list a:hover { color: var(--navy); }
@@ -909,7 +908,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 1.1rem 3.5rem;
   text-align: center;
   font-size: 0.78rem;
-  color: #5a2a2a;
+  color: var(--white); 
 }
 
 /* ═══════════════ PRODUCTS PAGE ═══════════════ */
@@ -941,7 +940,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(1.5rem, 3.4vw, 2.125rem);
   font-weight: 400;
-  color: #1c1c1c;
+  color: var(--main-red);
   min-height: 1.4em;
 }
 .hero-text .cursor-blink {
@@ -1513,18 +1512,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ====== OUR JOURNEY =========== */
 .our-journey-hero {
   position: relative;
-  min-height: 340px;
+  min-height: 400px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(90deg, #e0432c 0%, #f5871f 30%, rgba(247,183,51,0.55) 55%, rgba(247,183,51,0.15) 75%), url('assets/african-american.png') center/cover no-repeat;
-  background-color: #e0432c;
+  background: url('assets/african-american.png') center/cover no-repeat;
+  background-color: #ffffff;
 }
 .our-journey-hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(224,67,44,0.85) 0%, rgba(245,135,31,0.78) 32%, rgba(247,183,51,0.35) 58%, rgba(247,183,51,0.05) 78%);
   pointer-events: none;
 }
 
@@ -1740,17 +1738,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 1.2rem;
-
-  /* Apply gradient as background */
-  background-image: linear-gradient(90deg, #e0432c 0%, #f5871f 30%, rgba(247,183,51,0.85) 55%, rgba(247,183,51,1.0) 75%);
-  
-  /* Clip background to text outline */
-  -webkit-background-clip: text;
-  background-clip: text;
-  
-  /* Make text fill transparent so gradient shows through */
-  -webkit-text-fill-color: transparent;
-  color: transparent; 
+  color: var(--main-red); 
   
   display: inline-block; 
 }
