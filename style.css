@@ -455,7 +455,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .hero-tagline {
   font-size: clamp(0.9rem, 1.6vw, 1.05rem);
-  color: var(--main-red);
+  color: var(--text);
   font-weight: 500;
   max-width: 480px;
   line-height: 1.65;
@@ -639,8 +639,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   flex-direction: column;
   justify-content: center;
 }
-.products-banner-title{
-  color: var(--text);
+.banner-title{
+  color: var(--main-red);
   padding-bottom: 2rem;
 }
 .products-banner-text{
@@ -918,14 +918,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(90deg, #e0432c 0%, #f5871f 30%, rgba(247,183,51,0.55) 55%, rgba(247,183,51,0.15) 75%), url('assets/products.png') center/cover no-repeat;
-  background-color: #e0432c;
+  background-color: #ffffff;
 }
 .portfolio-hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(224,67,44,0.85) 0%, rgba(245,135,31,0.78) 32%, rgba(247,183,51,0.35) 58%, rgba(247,183,51,0.05) 78%);
+  background: url('assets/product_range.png') center/cover no-repeat;
   pointer-events: none;
 }
 .hero-inner {
@@ -1001,11 +1000,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(1.5rem, 2.6vw, 1.875rem);
   font-weight: 600;
-  color: #f5871f;
+  color: var(--main-red);
 }
 .content-heading em {
   font-style: normal;
-  color: #1c1c1c;
+  color: var(--main-red);
 }
 .product-content-container p {
   margin: 0 0 18px;
@@ -1069,14 +1068,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(90deg, #e0432c 0%, #f5871f 30%, rgba(247,183,51,0.55) 55%, rgba(247,183,51,0.15) 75%), url('assets/business_concept1.png') center/cover no-repeat;
+  background: url('assets/business_concept1.png') center/cover no-repeat;
   background-color: #e0432c;
 }
 .partners-hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(224,67,44,0.85) 0%, rgba(245,135,31,0.78) 32%, rgba(247,183,51,0.35) 58%, rgba(247,183,51,0.05) 78%);
   pointer-events: none;
 }
 .partners-inner {
@@ -1121,7 +1119,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
      (using the same $product['image'] already defined for each product),
      so the banner shows that product's own photo instead of a fixed one. */
   background-image:
-    linear-gradient(100deg, rgba(206, 56, 14, 0.94) 0%, rgba(209, 169, 137, 0.82) 40%, rgba(27,167,194,0.75) 100%),
+    
     var(--product-bg-image, none);
   background-size: cover;
   background-position: center;
@@ -1131,7 +1129,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(100deg, rgba(184, 86, 16, 0.779) 0%, rgba(140, 90, 15, 0.541) 45%, rgba(27,167,194,0.25) 100%);
   pointer-events: none;
 }
 .banner-content {
@@ -1146,8 +1143,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: 0.14em;
   font-weight: 700;
   text-transform: uppercase;
-  background: rgba(255,255,255,0.16);
-  border: 1px solid rgba(255,255,255,0.35);
+  background: rgb(197, 10, 10);
+  border: 1px solid rgba(187, 40, 40, 0.35);
   padding: 0.4rem 0.95rem;
   border-radius: 999px;
   margin-bottom: 0.9rem;
@@ -1165,6 +1162,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-transform: uppercase;
   opacity: 0.85;
   font-weight: 600;
+  color: var(--main-red);
 }
 .product-detail {
   max-width: 1100px;
@@ -1241,10 +1239,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .accordion-trigger .chevron { transition: transform 0.25s ease; font-size: 0.8rem; margin-left: 0.6rem; flex-shrink: 0; }
 .accordion-item.is-open .chevron { transform: rotate(180deg); }
 .accordion-trigger[data-key="composition"]{ 
-  background: linear-gradient(90deg, var(--orange), var(--main-red)); 
+  background: linear-gradient(var(--main-red)); 
 }
 .accordion-trigger[data-key="dosage"]{ 
-  background: linear-gradient(90deg, var(--orange), var(--main-red)); 
+  background: linear-gradient(var(--main-red)); 
 }
 
 .accordion-panel {
