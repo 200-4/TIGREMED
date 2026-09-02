@@ -85,22 +85,17 @@
     <section class="video-section" id="video" aria-label="Corporate video">
       <div class="video-inner">
         <h2 class="video-title">VIEW OUR CORPORATE VIDEO</h2>
-        <div class="video-frame-wrap">
-          <div class="video-player-shell">
-            <iframe
-              class="corp-video-embed"
-              src="https://www.youtube.com/embed/SOfSLweog4U?rel=0&modestbranding=1"
-              title="Tigremed corporate video"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
-          </div>
-          <div class="video-tagline-bar">
-            <span>Delivering quality healthcare solutions across Uganda</span>
-          </div>
+        <div class="video-iframe-wrap">
+          <iframe
+            src="https://youtu.be/vuH7vV6l4pM?si=eSROhu_m8Ce9FcMz"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
         </div>
+
       </div>
     </section>
 
