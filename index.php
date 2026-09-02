@@ -6,10 +6,7 @@
     <section class="hero" id="hero" aria-label="Hero section">
       <div class="hero-carousel" aria-live="polite">
         <div class="hero-slide is-active">
-          <img src="assets/business_concept1.png" alt="Tigremed healthcare concept" loading="eager" />
-        </div>
-        <div class="hero-slide">
-          <img src="assets/tigre_intro.jpg" alt="Healthcare professional and product support" loading="eager" />
+          <img src="assets/tigre_intro.png" alt="Healthcare professional and product support" loading="eager" />
         </div>
 
       </div>
