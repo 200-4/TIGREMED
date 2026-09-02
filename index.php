@@ -11,9 +11,7 @@
         <div class="hero-slide">
           <img src="assets/tigre_intro.jpg" alt="Healthcare professional and product support" loading="eager" />
         </div>
-        <div class="hero-slide">
-          <img src="assets/tigre_family.jpg" alt="Tigremed product range" loading="eager" />
-        </div>
+
       </div>
 
       <!-- Orange → white gradient overlay -->
