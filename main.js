@@ -384,9 +384,9 @@
   if (!heroTextEl) return;
 
   var heroMessages = [
-    'Good Service',
-    'Innovation-led',
-    'Advanced Customer care'
+    '16+ Years of Healthcare Experience',
+    
+    
   ];
 
   var msgIndex = 0;

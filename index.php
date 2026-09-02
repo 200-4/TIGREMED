@@ -21,8 +21,8 @@
             <span class="cursor-blink"></span>
           </h1>
           <p class="hero-tagline">
-            To enhance patients' lives, inspire hope and help provide<br class="br-desk"/>
-            world-class healthcare that is accessible to all.
+            Uganda local market expertise <br class="br-desk"/>
+            We bring care to all.
           </p>
           <a href="#about" class="btn btn-outline">KNOW MORE</a>
         </div>
@@ -87,7 +87,7 @@
         <h2 class="video-title">VIEW OUR CORPORATE VIDEO</h2>
         <div class="video-iframe-wrap">
           <iframe
-            src="https://youtu.be/vuH7vV6l4pM?si=eSROhu_m8Ce9FcMz"
+            src="https://www.youtube.com/watch?v=vuH7vV6l4pM"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
