@@ -127,7 +127,7 @@
 
       <!-- logo_tigre_final -->
       <a href="index.php" class="logo" aria-label="Tigremed Pharma Home">
-        <img src="assets/Tigremed_final.svg" alt="Tigremed Pharma" />
+        <img src="assets/Tigremed_final_logo.svg" alt="Tigremed Pharma" />
       </a>
 
       <!-- Desktop nav — centred between logo and CTA -->

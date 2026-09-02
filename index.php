@@ -4,12 +4,17 @@
 
     <!-- ═══════════════ HERO SECTION ═══════════════ -->
     <section class="hero" id="hero" aria-label="Hero section">
-
-      <!-- Background video -->
-      <video class="hero-video" autoplay muted loop playsinline preload="none" aria-hidden="true">
-        <!-- Replace src with actual video path -->
-        <source src="assets/introduction_video.mp4" type="video/mp4" />
-      </video>
+      <div class="hero-carousel" aria-live="polite">
+        <div class="hero-slide is-active">
+          <img src="assets/business_concept1.png" alt="Tigremed healthcare concept" loading="eager" />
+        </div>
+        <div class="hero-slide">
+          <img src="assets/tigre_intro.jpg" alt="Healthcare professional and product support" loading="eager" />
+        </div>
+        <div class="hero-slide">
+          <img src="assets/tigre_family.jpg" alt="Tigremed product range" loading="eager" />
+        </div>
+      </div>
 
       <!-- Orange → white gradient overlay -->
       <div class="hero-overlay" aria-hidden="true"></div>
@@ -28,6 +33,10 @@
         </div>
       </div>
 
+      <div class="hero-carousel-controls" aria-label="Hero carousel controls">
+        <button type="button" class="hero-carousel-btn prev" aria-label="Previous slide">&#10094;</button>
+        <button type="button" class="hero-carousel-btn next" aria-label="Next slide">&#10095;</button>
+      </div>
     </section>
 
     <!-- ═══════════════ ABOUT / SECOND CONTAINER ═══════════════ -->
@@ -35,12 +44,24 @@
       <div class="about-inner">
 
         <div class="about-image-wrap reveal delay-2">
-          <img
-            src="assets/van_tigre_th.png"
-            alt="Tigremed pharmaceutical distribution"
-            class="about-img"
-            loading="lazy"
-          />
+          <div class="about-image-slider" aria-label="Tigremed highlights slider">
+            <button type="button" class="about-slider-btn prev" aria-label="Previous image">&#10094;</button>
+            <div class="about-slide is-active">
+              <img
+                src="assets/Progermila.png"
+                alt="Tigremed pharmaceutical distribution"
+                loading="lazy"
+              />
+            </div>
+            <div class="about-slide">
+              <img
+                src="assets/Hantacid.png"
+                alt="Tigremed healthcare solutions"
+                loading="lazy"
+              />
+            </div>
+            <button type="button" class="about-slider-btn next" aria-label="Next image">&#10095;</button>
+          </div>
         </div>
 
         <div class="about-content reveal delay-3">
@@ -71,16 +92,10 @@
         <h2 class="video-title">VIEW OUR CORPORATE VIDEO</h2>
         <div class="video-frame-wrap">
           <div class="video-player-shell">
-            <!-- Replace with your actual video embed (YouTube iframe or <video>) -->
-            <iframe
-              class="corp-video-iframe"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1"
-              title="Tigremed Corporate Video"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
+            <video class="corp-video" controls playsinline preload="metadata" poster="assets/now_header.jpg">
+              <source src="assets/introduction_video.mp4" type="video/mp4" />
+              Your browser does not support the HTML5 video tag.
+            </video>
           </div>
           <div class="video-tagline-bar">
             <span>Delivering quality healthcare solutions across Uganda</span>
@@ -108,7 +123,7 @@
         </div>
         <div class="products-banner-img" aria-hidden="true">
           <!-- Medicine bottle placeholder -->
-          <img src="assets/product_tigre.png" alt=""  loading="lazy">
+          <img src="assets/tigremed_smiling-man.jpg" alt="" loading="lazy">
         </div>
       </div>
 

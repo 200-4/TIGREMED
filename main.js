@@ -134,7 +134,102 @@
   items.forEach(function (el) { io.observe(el); });
 })();
 
-/* ── 5. Product carousel controls ── */
+/* ── 5. Hero image carousel ── */
+(function () {
+  var slides = document.querySelectorAll('.hero-slide');
+  if (!slides.length) return;
+
+  var prevBtn = document.querySelector('.hero-carousel-btn.prev');
+  var nextBtn = document.querySelector('.hero-carousel-btn.next');
+  if (!prevBtn || !nextBtn) return;
+
+  var current = 0;
+  var intervalId = null;
+
+  function showSlide(index) {
+    slides.forEach(function (slide, slideIndex) {
+      slide.classList.toggle('is-active', slideIndex === index);
+    });
+    current = index;
+  }
+
+  function goNext() {
+    showSlide((current + 1) % slides.length);
+  }
+
+  function startAuto() {
+    intervalId = window.setInterval(goNext, 4000);
+  }
+
+  prevBtn.addEventListener('click', function () {
+    showSlide((current - 1 + slides.length) % slides.length);
+    if (intervalId) {
+      window.clearInterval(intervalId);
+      startAuto();
+    }
+  });
+
+  nextBtn.addEventListener('click', function () {
+    goNext();
+    if (intervalId) {
+      window.clearInterval(intervalId);
+      startAuto();
+    }
+  });
+
+  startAuto();
+})();
+
+/* ── 6. About image slider ── */
+(function () {
+  var slider = document.querySelector('.about-image-slider');
+  if (!slider) return;
+
+  var slides = slider.querySelectorAll('.about-slide');
+  if (!slides.length) return;
+
+  var prevBtn = slider.querySelector('.about-slider-btn.prev');
+  var nextBtn = slider.querySelector('.about-slider-btn.next');
+  var index = 0;
+  var autoTimer = null;
+
+  function showAboutSlide(nextIndex) {
+    slides.forEach(function (slide, slideIndex) {
+      slide.classList.toggle('is-active', slideIndex === nextIndex);
+    });
+    index = nextIndex;
+  }
+
+  function startAutoSlide() {
+    autoTimer = window.setInterval(function () {
+      showAboutSlide((index + 1) % slides.length);
+    }, 3500);
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function () {
+      showAboutSlide((index - 1 + slides.length) % slides.length);
+      if (autoTimer) {
+        window.clearInterval(autoTimer);
+        startAutoSlide();
+      }
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function () {
+      showAboutSlide((index + 1) % slides.length);
+      if (autoTimer) {
+        window.clearInterval(autoTimer);
+        startAutoSlide();
+      }
+    });
+  }
+
+  startAutoSlide();
+})();
+
+/* ── 7. Product carousel controls ── */
 (function () {
   var carousel = document.getElementById('product-grid');
   if (!carousel) return;
@@ -152,7 +247,7 @@
   });
 })();
 
-/* ── 6. Product detail accordion ── */
+/* ── 7. Product detail accordion ── */
 (function () {
   var triggers = document.querySelectorAll('.accordion-trigger');
   if (!triggers.length) return;
