@@ -24,14 +24,9 @@
             Uganda local market expertise <br class="br-desk"/>
             We bring care to all.
           </p>
-          <a href="#about" class="btn btn-outline">KNOW MORE</a>
         </div>
       </div>
 
-      <div class="hero-carousel-controls" aria-label="Hero carousel controls">
-        <button type="button" class="hero-carousel-btn prev" aria-label="Previous slide">&#10094;</button>
-        <button type="button" class="hero-carousel-btn next" aria-label="Next slide">&#10095;</button>
-      </div>
     </section>
 
     <!-- ═══════════════ ABOUT / SECOND CONTAINER ═══════════════ -->
@@ -66,17 +61,6 @@
             committed to improving the availability of quality medicines,
             medical devices and healthcare solutions.
           </p>
-          <p class="about-text">
-            We work closely with hospitals, clinics, pharmacies, healthcare
-            programs, development partners, and manufacturers to
-            strengthen healthcare delivery throughout Uganda.
-          </p>
-          <p class="about-text">
-            Our focus is to bridge the gap between healthcare demand
-            and product availability by building dependable supply chains,
-            ensuring regulatory compliance, and delivering
-            exceptional market support for healthcare products.
-          </p>
         </div>
       </div>
     </section>
@@ -87,7 +71,7 @@
         <h2 class="video-title">VIEW OUR CORPORATE VIDEO</h2>
         <div class="video-iframe-wrap">
           <iframe
-            src="https://www.youtube.com/watch?v=vuH7vV6l4pM"
+            src="https://www.youtube.com/embed/vuH7vV6l4pM"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -119,6 +103,30 @@
         <div class="products-banner-img" aria-hidden="true">
           <!-- Medicine bottle placeholder -->
           <img src="assets/tigremed_smiling-man.jpg" alt="" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Product categories -->
+      <div class="category" aria-label="Product categories">
+        <p class="category-intro">
+          Accessibility is embedded into how we develop, manufacture, and deliver medicines.
+          Through scalable manufacturing, fair pricing models, and differentiated delivery
+          formats, we work to make high-quality therapies across diverse healthcare segments,
+          especially in markets where access remains limited.
+        </p>
+        <div class="category-grid">
+          <a class="category-card category-card-dermatology" href="products.php" aria-label="Explore Dermatology products">
+            <img src="assets/dermatology.png" alt="Dermatology product category" loading="lazy">
+            <span>Dermatology</span>
+          </a>
+          <a class="category-card category-card-respiratory" href="products.php" aria-label="Explore Respiratory products">
+            <img src="assets/respiratory.png" alt="Respiratory product category" loading="lazy">
+            <span>Respiratory</span>
+          </a>
+          <a class="category-card category-card-oncology" href="products.php" aria-label="Explore Oncology products">
+            <img src="assets/oncology.png" alt="Oncology product category" loading="lazy">
+            <span>Oncology</span>
+          </a>
         </div>
       </div>
 

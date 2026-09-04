@@ -383,48 +383,9 @@
   var heroTextEl = document.getElementById('heroTitle');
   if (!heroTextEl) return;
 
-  var heroMessages = [
-    '16+ Years of Healthcare Experience',
-    
-    
-  ];
-
-  var msgIndex = 0;
-  var charIndex = 0;
-  var typing = true;
-  var typeSpeed = 55;
-  var eraseSpeed = 30;
-  var holdTime = 1600;
-
-  function tick() {
-    var current = heroMessages[msgIndex];
-
-    if (typing) {
-      charIndex++;
-      heroTextEl.innerHTML = current.slice(0, charIndex) + '<span class="cursor-blink"></span>';
-      if (charIndex >= current.length) {
-        typing = false;
-        setTimeout(tick, holdTime);
-        return;
-      }
-      setTimeout(tick, typeSpeed);
-    } else {
-      charIndex--;
-      heroTextEl.innerHTML = current.slice(0, charIndex) + '<span class="cursor-blink"></span>';
-      if (charIndex <= 0) {
-        typing = true;
-        msgIndex = (msgIndex + 1) % heroMessages.length;
-        setTimeout(tick, 300);
-        return;
-      }
-      setTimeout(tick, eraseSpeed);
-    }
-  }
-
+  var heroMessage = '16+ Years of Healthcare Experience';
   var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) {
-    heroTextEl.innerHTML = heroMessages[0] + '<span class="cursor-blink"></span>';
-  } else {
-    tick();
-  }
+
+  heroTextEl.textContent = heroMessage;
+  if (!prefersReducedMotion) heroTextEl.classList.add('hero-title-grow');
 })();

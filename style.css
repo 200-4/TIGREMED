@@ -462,12 +462,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   flex-shrink: 0;
 }
 .hero-title {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 800;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 500;
   color: var(--main-red);
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 1.4rem;
+}
+.hero-title-grow {
+  transform-origin: center left;
+  animation: hero-grow 7s ease-out forwards;
+}
+@keyframes hero-grow {
+  from { transform: scale(0.96); opacity: 0.7; }
+  to { transform: scale(1.04); opacity: 1; }
 }
 .hero-tagline {
   font-size: clamp(0.9rem, 1.6vw, 1.05rem);
@@ -741,8 +749,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .video-inner {
   width: 100%;
-  max-width: 100%;
-  margin: 0;
+  max-width: 960px;
+  margin: 0 auto;
  
 }
 .video-title {
@@ -763,21 +771,79 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     height: 0;
     overflow: hidden;
     background: var(--green-900);
-    align-items: center;
+  margin: 0 auto;
 }
 .video-iframe-wrap iframe {
     position: absolute;
     top: 0;
     left: 0;
-    width: 50%;
-    height: 50%;
-    border-radius: 5%;
+    width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
     display: block;
 }
 
 
 /* ═══════════════ PRODUCTS SECTION ═══════════════ */
 .products-section { background: var(--off-white); }
+.category {
+  width: 100%;
+  padding: 2.5rem 2.5rem 0;
+}
+.category-intro {
+  width: min(100%, 1200px);
+  margin: 0 auto 1.8rem;
+  color: var(--text);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  text-align: left;
+}
+.category-grid {
+  width: min(100%, 1200px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 0 auto;
+}
+.category-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  overflow: hidden;
+  border-radius: 1rem;
+  color: var(--white);
+  text-decoration: none;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.category-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.category-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.08);
+  transition: background var(--transition);
+}
+.category-card span {
+  position: relative;
+  z-index: 1;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.category-card:hover::after { background: rgba(0, 0, 0, 0); }
 .products-banner {
   display: flex;
   align-items: stretch;
@@ -801,8 +867,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--main-red);
   padding-bottom: 2rem;
 }
-.products-banner-text{
-  line-height: 1.8rem;
+.products-banner-text {
+  line-height: 3.8rem;
+}
+.products-banner-text p {
+  font-size: 5rem;
+  color: var(--text);
+  margin-bottom: 1.2rem;
 }
 .products-banner-img {
   flex: 0 0 50%;
@@ -986,25 +1057,26 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .footer-inner {
   display: flex;
-  gap: 4rem;
-  padding: 3rem 3.5rem 3.5rem;
+  gap: 3rem;
+  padding: 2rem 3.5rem 2.2rem;
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 .footer-brand { flex: 0 0 260px; max-width: 260px; }
-.footer-logo { display: block; margin-bottom: 1.2rem; }
+.footer-logo { display: block; margin-bottom: 0.8rem; }
+.footer-logo img { height: 56px; }
 .footer-desc {
-  font-size: 0.84rem;
+  font-size: 0.78rem;
   color: var(--white);
   line-height: 1.75;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1rem;
 }
 .footer-social {
   display: flex;
-  gap: 0.9rem;
+  gap: 0.65rem;
 }
 .social-icon {
-  width: 48px;
-  height: 48px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1053,22 +1125,22 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .footer-col { min-width: 140px; }
 .footer-col-title {
-  font-size: 0.95rem;
+  font-size: 0.86rem;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.6rem;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.footer-list li { margin-bottom: 0.5rem; }
+.footer-list li { margin-bottom: 0.35rem; }
 .footer-list a {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   color: var(--white);
   transition: color var(--transition);
 }
 .footer-list a:hover { color: var(--navy); }
 .footer-bottom {
-  padding: 1.1rem 3.5rem;
+  padding: 0.7rem 3.5rem;
   text-align: center;
   font-size: 0.78rem;
   color: var(--white); 
@@ -1202,6 +1274,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   justify-self: center;
 }
 @media (max-width: 768px) {
+  .category {
+    padding: 2rem 1.2rem 0;
+  }
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+  .category-card {
+    min-height: 210px;
+  }
   .product-list {
     padding: 0 24px 0;
   }
@@ -1550,7 +1631,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .about-img { width: 100%; max-height: 280px; object-fit: contain; background: transparent; }
   .about-content { text-align: center; width: 100%; }
 
-  .footer-inner { flex-direction: column; gap: 2rem; padding: 2rem 1.5rem 2.5rem; }
+  .footer-inner { flex-direction: column; gap: 1.25rem; padding: 1.4rem 1.5rem 1.6rem; }
   .footer-brand { flex: none; max-width: 100%; }
   .footer-nav-cols { justify-content: flex-start; gap: 2rem; }
 
@@ -1609,11 +1690,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     min-height: calc(100dvh - 58px);
     height: calc(100dvh - 58px);
   }
+  .hero-carousel {
+    background: var(--white);
+  }
+  .hero-slide img {
+    object-fit: contain;
+    object-position: center;
+  }
   .hero-title { font-size: 2rem; }
   .hero-overlay {
     background: linear-gradient(
       160deg,
-      rgba(245,135,31,0.85) 0%
+      rgba(245,135,31,0.85) 0%,
       rgba(224,67,44,0.78) 32%,
       rgba(255,255,255,0.22) 100%
     );
@@ -1636,7 +1724,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .product-grid { grid-template-columns: 1fr 1fr; gap: 0.9rem; }
 
   .footer-nav-cols { gap: 1.4rem; }
-  .footer-bottom { padding: 1rem 1.5rem; }
+  .footer-bottom { padding: 0.7rem 1.5rem; }
 
   .social-float-btn {
     width: 44px;
