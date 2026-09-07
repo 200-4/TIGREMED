@@ -116,16 +116,20 @@
         </p>
         <div class="category-grid">
           <a class="category-card category-card-dermatology" href="products.php" aria-label="Explore Dermatology products">
-            <img src="assets/dermatology.png" alt="Dermatology product category" loading="lazy">
-            <span>Dermatology</span>
+            <img src="assets/gastroenterology.png" alt="Gastroenterology product category" loading="lazy">
+            <span>Gastroenterology</span>
           </a>
           <a class="category-card category-card-respiratory" href="products.php" aria-label="Explore Respiratory products">
             <img src="assets/respiratory.png" alt="Respiratory product category" loading="lazy">
-            <span>Respiratory</span>
+            <span>Allergy & Respiratory</span>
           </a>
           <a class="category-card category-card-oncology" href="products.php" aria-label="Explore Oncology products">
-            <img src="assets/oncology.png" alt="Oncology product category" loading="lazy">
-            <span>Oncology</span>
+            <img src="assets/nutricuticals.png" alt="Nutricuticals product category" loading="lazy">
+            <span>Nutricuticals</span>
+          </a>
+          <a class="category-card category-card-oncology" href="products.php" aria-label="Explore Oncology products">
+            <img src="assets/medical_consumables.png" alt="Medical Consumables product category" loading="lazy">
+            <span>Medical Consumables</span>
           </a>
         </div>
       </div>
