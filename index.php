@@ -17,13 +17,18 @@
       <div class="hero-content reveal delay-1">
         <!-- Text column — 60% width -->
         <div class="hero-text-col">
+          <h3 class="hero-tag"><span class="trusted-word">TRUSTED</span> PHARMACEUTICAL PARTNER</h3>
           <h1 class="hero-title" id="heroTitle">
-            <span class="cursor-blink"></span>
+            <span class="hero-title-line hero-title-accent">16+ Years of</span>
+            <span class="hero-title-line">Healthcare Experience</span>
           </h1>
           <p class="hero-tagline">
             Uganda local market expertise <br class="br-desk"/>
             We bring care to all.
           </p>
+          <div class="hero-awards">
+            <img src="assets/award.png" alt="Tigremed Pharma Co Ltd Award" loading="lazy" />
+          </div>
         </div>
       </div>
 

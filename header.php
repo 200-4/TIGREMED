@@ -217,12 +217,3 @@
     </nav>
   </header>
 
-  <!-- Award popup: opens on the user's first scroll -->
-  <div class="award-modal" id="awardModal" role="dialog" aria-modal="true" aria-labelledby="awardModalTitle" aria-hidden="true">
-    <div class="award-modal-backdrop" data-award-close="true"></div>
-    <div class="award-modal-content">
-      <button type="button" class="award-modal-close" id="awardModalClose" aria-label="Close award popup">&times;</button>
-      <h2 id="awardModalTitle" class="sr-only">Tigremed award</h2>
-      <img src="assets/award.png" alt="Tigremed award for 16 years of pharma marketing expertise in Uganda" />
-    </div>
-  </div>

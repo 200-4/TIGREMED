@@ -111,45 +111,7 @@
   }, { passive: true });
 })();
 
-/* ── 3. Award popup on first scroll ── */
-(function () {
-  var modal = document.getElementById('awardModal');
-  var closeButton = document.getElementById('awardModalClose');
-  if (!modal || !closeButton) return;
-
-  var hasScrolled = false;
-
-  function closeModal() {
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('award-modal-open');
-  }
-
-  function openModal() {
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('award-modal-open');
-    closeButton.focus();
-  }
-
-  function handleFirstScroll() {
-    if (hasScrolled || window.scrollY <= 0) return;
-    hasScrolled = true;
-    window.removeEventListener('scroll', handleFirstScroll);
-    openModal();
-  }
-
-  closeButton.addEventListener('click', closeModal);
-  modal.addEventListener('click', function (event) {
-    if (event.target.hasAttribute('data-award-close')) closeModal();
-  });
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
-  });
-  window.addEventListener('scroll', handleFirstScroll, { passive: true });
-})();
-
-/* ── 4. Footer year ── */
+/* ── 3. Footer year ── */
 (function () {
   var el = document.getElementById('footer-year');
   if (el) el.textContent = new Date().getFullYear();
@@ -421,9 +383,7 @@
   var heroTextEl = document.getElementById('heroTitle');
   if (!heroTextEl) return;
 
-  var heroMessage = '16+ Years of Healthcare Experience';
   var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  heroTextEl.textContent = heroMessage;
   if (!prefersReducedMotion) heroTextEl.classList.add('hero-title-grow');
 })();
