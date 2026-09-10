@@ -713,7 +713,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     margin-bottom: 1.4rem;
   }
   .hero-awards {
-    width: min(100%, 150px);
+    width: min(100%, 90px);
     margin: -0.5rem auto 0;
   }
   .hero-carousel-controls {
