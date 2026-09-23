@@ -12,7 +12,7 @@ $productSlugs = array('progermila', 'venocid', 'inflagic', 'hantacid');
 
 $staticPages = array(
   array('path' => 'index.php', 'freq' => 'weekly', 'priority' => '1.0'),
-  array('path' => 'our-journey.php', 'freq' => 'monthly', 'priority' => '0.7'),
+  array('path' => 'about-us.php', 'freq' => 'monthly', 'priority' => '0.7'),
   array('path' => 'products.php', 'freq' => 'weekly', 'priority' => '0.9'),
   array('path' => 'services.php', 'freq' => 'monthly', 'priority' => '0.7'),
   array('path' => 'partners.php', 'freq' => 'monthly', 'priority' => '0.6'),

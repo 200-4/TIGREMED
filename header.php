@@ -136,34 +136,11 @@
 
           <li><a href="index.php" class="nav-link active">Home</a></li>
 
-          <li class="has-dropdown">
-            <a href="#" class="nav-link">
-              About Us <span class="arrow">&#9660;</span>
-            </a>
-            <ul class="dropdown">
-              <li><a href="our-journey.php">Our Journey</a></li>
-              <li><a href="#">Board of Directors</a></li>
-            </ul>
-          </li>
+          <li><a href="about-us.php" class="nav-link">About Us</a></li>
 
-          <li class="has-dropdown">
-            <a href="products.php" class="nav-link">
-              Products <span class="arrow">&#9660;</span>
-            </a>
-            <ul class="dropdown">
-              <li><a href="products.php">Product Portfolio</a></li>
-            </ul>
-          </li>
+          <li><a href="products.php" class="nav-link">Products</a></li>
 
-          <li class="has-dropdown">
-            <a href="services.php" class="nav-link">
-              Services <span class="arrow">&#9660;</span>
-            </a>
-            <ul class="dropdown">
-              <li><a href="services.php">Distribution</a></li>
-              <li><a href="services.php">Market Access</a></li>
-            </ul>
-          </li>
+          <li><a href="services.php" class="nav-link">Services</a></li>
 
           <li><a href="partners.php" class="nav-link">Partners</a></li>
 
@@ -191,26 +168,9 @@
     <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
       <ul class="mobile-nav-list">
         <li><a href="index.php" class="mobile-link active">Home</a></li>
-        <li>
-          <a href="#" class="mobile-link">About Us<span class="mobile-arrow">&#9660;</span></a>
-          <ul class="mobile-submenu">
-            <li><a href="#" class="mobile-sublink">Our Journey</a></li>
-            <li><a href="#" class="mobile-sublink">Board of Directors</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="products.php" class="mobile-link">Products<span class="mobile-arrow">&#9660;</span></a>
-          <ul class="mobile-submenu">
-            <li><a href="products.php" class="mobile-sublink">Product Portfolio</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="services.php" class="mobile-link">Services<span class="mobile-arrow">&#9660;</span></a>
-          <ul class="mobile-submenu">
-            <li><a href="services.php" class="mobile-sublink">Distribution</a></li>
-            <li><a href="services.php" class="mobile-sublink">Market Access</a></li>
-          </ul>
-        </li>
+        <li><a href="about-us.php" class="mobile-link">About Us</a></li>
+        <li><a href="products.php" class="mobile-link">Products</a></li>
+        <li><a href="services.php" class="mobile-link">Services</a></li>
         <li><a href="#" class="mobile-link">Partners</a></li>
         <li><a href="contact.php" class="mobile-link contact-mobile">Connect with Us</a></li>
       </ul>

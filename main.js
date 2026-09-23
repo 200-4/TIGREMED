@@ -24,17 +24,6 @@
     var link = e.target.closest('.mobile-link');
     if (!link) return;
 
-    var parentLi = link.parentElement;
-    var submenu = parentLi.querySelector(':scope > .mobile-submenu');
-
-    if (submenu) {
-      /* Parent link with a submenu: toggle it, don't navigate or close */
-      e.preventDefault();
-      submenu.classList.toggle('open');
-      parentLi.classList.toggle('open');
-      return;
-    }
-
     /* Leaf link: let it navigate, close the overlay */
     closeNav();
   });

@@ -36,6 +36,8 @@
 
     <!-- ═══════════════ ABOUT / SECOND CONTAINER ═══════════════ -->
     <section class="about-section" id="about" aria-label="About Tigremed">
+        <!-- Add the text Here -->
+         <h2 class="new-lanch-text">New Launches</h2>
       <div class="about-inner">
 
         <div class="about-image-wrap reveal delay-2">
@@ -61,10 +63,7 @@
 
         <div class="about-content reveal delay-3">
           <p class="about-text">
-            Tigremed Pharma Co Ltd is a Uganda-focused pharmaceutical
-            market access, distribution and healthcare supply chain company
-            committed to improving the availability of quality medicines,
-            medical devices and healthcare solutions.
+            We are your gateway to Uganda's vast healthcare.We Launch blue ocean products country wide.
           </p>
         </div>
       </div>

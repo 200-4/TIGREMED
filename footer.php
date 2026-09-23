@@ -38,8 +38,7 @@
         <div class="footer-col">
           <h4 class="footer-col-title">About Us</h4>
           <ul class="footer-list">
-            <li><a href="#">Our Journey</a></li>
-            <li><a href="#">Board of Directors</a></li>
+            <li><a href="about-us.php">About Us</a></li>
           </ul>
         </div>
 

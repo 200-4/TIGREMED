@@ -2,8 +2,14 @@
 
 <!-- ============ HERO ============ -->
 <section class="portfolio-hero">
-  <div class="hero-inner">
-    <p class="hero-text" id="heroText"><span class="cursor-blink"></span></p>
+  <div class="portfolio-hero-content reveal">
+    <p class="portfolio-hero-eyebrow">Our Products</p>
+    <h1 class="portfolio-hero-title">Quality products for <span>better care</span></h1>
+    <p class="portfolio-hero-text">
+      Discover our growing portfolio of trusted medicines and healthcare
+      solutions supporting patients and providers across Uganda.
+    </p>
+    <a href="#product-list" class="btn btn-primary portfolio-hero-cta">Explore Products <i class="fas fa-arrow-down"></i></a>
   </div>
 </section>
 
@@ -25,9 +31,27 @@
 </section>
 
 <!-- Product category -->
- <section class="product-list">
+ <section class="product-list" id="product-list">
+   <div class="product-list-heading">
+    <p class="product-list-eyebrow">Our range</p>
+    <h2>Featured products</h2>
+    <p>Focused healthcare solutions sourced from trusted manufacturers.</p>
+   </div>
     <?php include "products_range.php"; ?>
  </section>
+
+<!-- Logistics -->
+<section class="logistics-section" aria-label="Efficient logistics for better access">
+  <div class="logistics-overlay">
+    <div class="logistics-overlay-icon" aria-hidden="true">
+      <i class="fas fa-truck-moving"></i>
+    </div>
+    <div class="logistics-overlay-copy">
+      <h2>Connected healthcare delivery</h2>
+      <p>Reliable distribution support that keeps essential products moving safely and on time.</p>
+    </div>
+  </div>
+</section>
 
 
 <?php include 'footer.php'; ?>

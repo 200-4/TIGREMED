@@ -1,14 +1,52 @@
 <?php include 'header.php'; ?>
 <section class="our-journey-hero">
-  <div class="hero-inner">
-    <p class="hero-text" id="heroText"><span class="cursor-blink"></span></p>
+  <div class="about-hero-content reveal">
+    <p class="about-hero-eyebrow">About Tigremed</p>
+    <h1 class="about-hero-title">Committed to <span>better healthcare</span></h1>
+    <p class="about-hero-text">
+      Tigremed Pharma Co Ltd is a Uganda-focused pharmaceutical distribution
+      and healthcare supply chain company dedicated to improving access to
+      quality medicines and medical supplies.
+    </p>
+    <a href="#our-story" class="btn btn-primary about-hero-cta">Our Story <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
-<!-- ═══════════════ OUR JOURNEY — INTRO (equal-width text | image) ═══════════════ -->
+
+  <!-- ═══════════════ OUR VISION / OUR MISSION ═══════════════ -->
+  <section class="mission-vision-section">
+
+    <div class="mission-vision-block reveal">
+      <div class="mv-icon" aria-hidden="true"><i class="far fa-eye"></i></div>
+      <div class="mv-content">
+        <h3 class="mv-title">Our Vision</h3>
+        <p class="mv-text">
+          To be Uganda's most trusted healthcare distribution and market
+          development partner, recognized for excellence in pharmaceutical
+          access, supply chain reliability, and healthcare innovation.
+        </p>
+      </div>
+    </div>
+
+    <div class="mission-vision-block reveal delay-1">
+      <div class="mv-icon" aria-hidden="true"><i class="fas fa-bullseye"></i></div>
+      <div class="mv-content">
+        <h3 class="mv-title">Our Mission</h3>
+        <p class="mv-text">
+          To support Uganda's healthcare system by providing reliable access
+          to quality medicines, medical devices, diagnostics, and healthcare
+          commodities at affordable prices while creating sustainable value
+          for healthcare providers, patients, and manufacturing partners.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+<!-- ═══════════════ ABOUT TIGREMED — INTRO (equal-width text | image) ═══════════════ -->
   <section class="journey-hero-section">
     <div class="journey-inner">
 
-      <div class="journey-text reveal">
+      <div class="journey-text reveal" id="our-story">
         <p class="journey-paragraph">
           Tigremed Pharma Co Ltd is a Uganda-focused pharmaceutical, distribution
           and healthcare supply chain company committed to improving the
@@ -29,30 +67,6 @@
       </div>
 
     </div>
-  </section>
-
-  <!-- ═══════════════ OUR VISION / OUR MISSION ═══════════════ -->
-  <section class="mission-vision-section">
-
-    <div class="mission-vision-block reveal">
-      <h3 class="mv-title">Our Vision</h3>
-      <p class="mv-text">
-        To be Uganda's most trusted healthcare distribution and market
-        development partner, recognized for excellence in pharmaceutical
-        access, supply chain reliability, and healthcare innovation.
-      </p>
-    </div>
-
-    <div class="mission-vision-block reveal delay-1">
-      <h3 class="mv-title">Our Mission</h3>
-      <p class="mv-text">
-        To support Uganda's healthcare system by providing reliable access
-        to quality medicines, medical devices, diagnostics, and healthcare
-        commodities at affordable prices while creating sustainable value
-        for healthcare providers, patients, and manufacturing partners.
-      </p>
-    </div>
-
   </section>
 
   <!-- ═══════════════ OUR TEAM — 3 images, hover-reveal caption ═══════════════ -->
