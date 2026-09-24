@@ -18,7 +18,7 @@
 <section class="portfolio-section">
   <div class="product-image-container">
     <div class="portfolio-graphic">
-      <img src="assets/product_tigre.png" alt="Tigremed product" class="portfolio-image" />
+      <img src="assets/man_happy.png" alt="Tigremed product" class="portfolio-image" />
     </div>
   </div>
 

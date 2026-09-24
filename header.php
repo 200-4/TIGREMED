@@ -1,3 +1,4 @@
+<?php $current_page = basename($_SERVER['PHP_SELF']); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,15 +135,15 @@
       <nav class="main-nav" id="main-nav" role="navigation" aria-label="Main navigation">
         <ul class="nav-list">
 
-          <li><a href="index.php" class="nav-link active">Home</a></li>
+          <li><a href="index.php" class="nav-link<?php echo $current_page === 'index.php' ? ' active' : ''; ?>"<?php echo $current_page === 'index.php' ? ' aria-current="page"' : ''; ?>>Home</a></li>
 
-          <li><a href="about-us.php" class="nav-link">About Us</a></li>
+          <li><a href="about-us.php" class="nav-link<?php echo $current_page === 'about-us.php' ? ' active' : ''; ?>"<?php echo $current_page === 'about-us.php' ? ' aria-current="page"' : ''; ?>>About Us</a></li>
 
-          <li><a href="products.php" class="nav-link">Products</a></li>
+          <li><a href="products.php" class="nav-link<?php echo $current_page === 'products.php' ? ' active' : ''; ?>"<?php echo $current_page === 'products.php' ? ' aria-current="page"' : ''; ?>>Products</a></li>
 
-          <li><a href="services.php" class="nav-link">Services</a></li>
+          <li><a href="services.php" class="nav-link<?php echo $current_page === 'services.php' ? ' active' : ''; ?>"<?php echo $current_page === 'services.php' ? ' aria-current="page"' : ''; ?>>Services</a></li>
 
-          <li><a href="partners.php" class="nav-link">Partners</a></li>
+          <li><a href="partners.php" class="nav-link<?php echo $current_page === 'partners.php' ? ' active' : ''; ?>"<?php echo $current_page === 'partners.php' ? ' aria-current="page"' : ''; ?>>Partners</a></li>
 
         </ul>
       </nav>
@@ -167,11 +168,11 @@
          and it will never render over the hamburger/close icon again. -->
     <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
       <ul class="mobile-nav-list">
-        <li><a href="index.php" class="mobile-link active">Home</a></li>
-        <li><a href="about-us.php" class="mobile-link">About Us</a></li>
-        <li><a href="products.php" class="mobile-link">Products</a></li>
-        <li><a href="services.php" class="mobile-link">Services</a></li>
-        <li><a href="#" class="mobile-link">Partners</a></li>
+        <li><a href="index.php" class="mobile-link<?php echo $current_page === 'index.php' ? ' active' : ''; ?>"<?php echo $current_page === 'index.php' ? ' aria-current="page"' : ''; ?>>Home</a></li>
+        <li><a href="about-us.php" class="mobile-link<?php echo $current_page === 'about-us.php' ? ' active' : ''; ?>"<?php echo $current_page === 'about-us.php' ? ' aria-current="page"' : ''; ?>>About Us</a></li>
+        <li><a href="products.php" class="mobile-link<?php echo $current_page === 'products.php' ? ' active' : ''; ?>"<?php echo $current_page === 'products.php' ? ' aria-current="page"' : ''; ?>>Products</a></li>
+        <li><a href="services.php" class="mobile-link<?php echo $current_page === 'services.php' ? ' active' : ''; ?>"<?php echo $current_page === 'services.php' ? ' aria-current="page"' : ''; ?>>Services</a></li>
+        <li><a href="partners.php" class="mobile-link<?php echo $current_page === 'partners.php' ? ' active' : ''; ?>"<?php echo $current_page === 'partners.php' ? ' aria-current="page"' : ''; ?>>Partners</a></li>
         <li><a href="contact.php" class="mobile-link contact-mobile">Connect with Us</a></li>
       </ul>
     </nav>

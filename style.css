@@ -738,6 +738,38 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .about-text:last-child { margin-bottom: 0; }
 
+/* ═══════════════ REACH NETWORK SECTION ═══════════════ */
+.reach-section {
+  background: var(--white);
+  padding: 4rem 1.5rem;
+}
+.reach-inner {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+.reach-title {
+  margin-bottom: 1.8rem;
+  color: var(--text);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
+.reach-map-container {
+  width: 100%;
+  background: inherit;
+}
+.reach-map-container img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin: 0 auto;
+  background: inherit;
+}
+
 /* ═══════════════ VIDEO SECTION ═══════════════ */
 .video-section {
   background: var(--white);
@@ -1291,7 +1323,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin: 0 auto;
   padding: 70px 40px 90px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 60px;
   align-items: center;
   overflow: hidden;
@@ -1316,7 +1348,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .portfolio-graphic .portfolio-image {
   width: 100%;
   height: auto;
-  max-width: 360px;
   display: block;
   object-fit: contain;
   border-radius: 0;
@@ -1804,6 +1835,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .about-image-wrap { flex: none; max-width: 100%; width: 100%; max-height: 280px; overflow: hidden; }
   .about-img { width: 100%; max-height: 280px; object-fit: contain; background: transparent; }
   .about-content { text-align: center; width: 100%; }
+
+  .product-content-container { order: 1; }
+  .product-image-container { order: 2; }
 
   .footer-inner { flex-direction: column; gap: 1.25rem; padding: 1.4rem 1.5rem 1.6rem; }
   .footer-brand { flex: none; max-width: 100%; }

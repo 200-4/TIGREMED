@@ -69,6 +69,21 @@
       </div>
     </section>
 
+    <!-- ═══════════════ REACH NETWORK SECTION ═══════════════ -->
+    <section class="reach-section" id="reach" aria-label="Our reach network">
+      <div class="reach-inner">
+        <h2 class="reach-title">Our Reach Network</h2>
+        <div class="reach-map-container">
+          <img
+            src="assets/map_tiger.png"
+            alt="Tigremed reach network across Uganda"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+
     <!-- ═══════════════ CORPORATE VIDEO SECTION ═══════════════ -->
     <section class="video-section" id="video" aria-label="Corporate video">
       <div class="video-inner">
