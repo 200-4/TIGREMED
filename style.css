@@ -468,6 +468,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 100%;
   height: auto;
 }
+.hero-banner {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: var(--main-red);
+  color: var(--white);
+  text-align: center;
+}
+.hero-banner p {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
 .br-desk { display: block; }
 .hero-carousel-controls {
   position: absolute;

@@ -29,7 +29,7 @@
       'eyebrow' => 'Oral Solution',
       'title' => 'Inflagic Oral Solution',
       'subtitle' => 'Product Name',
-      'image' => 'assets/inflagic_oral solution.png',
+      'image' => 'assets/inflagic_oral_solution.jpeg',
       'alt' => 'Inflagic oral solution packaging',
       'sections' => array(
         array('key' => 'composition', 'label' => 'Composition', 'heading' => 'Composition', 'body' => 'A liquid-based formulation developed for dependable delivery in pediatric and outpatient care settings.'),
@@ -45,6 +45,17 @@
       'sections' => array(
         array('key' => 'composition', 'label' => 'Composition', 'heading' => 'Composition', 'body' => 'A digestive support product formulated to help address common symptoms linked to gastric discomfort and acidity.'),
         array('key' => 'dosage', 'label' => 'Dosage Form', 'heading' => 'Dosage Form', 'body' => 'Available in easy-to-use oral dosage format with practical administration guidance.'),
+      )
+    ),
+    'zentokid' => array(
+      'eyebrow' => 'Pediatric Care',
+      'title' => 'Zentokid',
+      'subtitle' => 'Appetite Booster For Kids',
+      'image' => 'assets/zentokid.jpeg',
+      'alt' => 'Zentokid product packaging',
+      'sections' => array(
+        array('key' => 'composition', 'label' => 'Composition', 'heading' => 'Composition', 'body' => 'Refer to the product packaging for complete ingredient and strength information.'),
+        array('key' => 'dosage', 'label' => 'Dosage Form', 'heading' => 'Dosage Form', 'body' => 'Use only as directed on the product packaging or by a healthcare professional.'),
       )
     )
   );

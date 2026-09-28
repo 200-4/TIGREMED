@@ -34,6 +34,10 @@
 
     </section>
 
+    <section class="hero-banner" aria-label="Tigremed tagline">
+      <p>We bring care to all.</p>
+    </section>
+
     <!-- ═══════════════ ABOUT / SECOND CONTAINER ═══════════════ -->
     <section class="about-section" id="about" aria-label="About Tigremed">
         <!-- Add the text Here -->
